@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tvTabelaMiejsce"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="1"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvTabelaDruzyna"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.25"
+            android:gravity="center"
+            android:text="Drużyna"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvTabelaMecze"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="M."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvTabelaPunkty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="Pkt."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvTabelaZwyciestwa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="Z."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvTabelaRemisy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="R."
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tvTabelaPorazki"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="P."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvTabelaBramkiZdobyte"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="Br."
+            android:textSize="18sp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text=":"
+            android:textSize="18sp" />
+        <TextView
+            android:id="@+id/tvTabelaBramkiStracone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="Br."
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

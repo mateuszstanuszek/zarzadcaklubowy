@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+         <TextView
+                android:id="@+id/tvTerminarzLayoutKolejka"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="center"
+                android:text="1"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvTerminarzLayoutGospodarz"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:text="Gospodarz"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvTerminarzLayoutBrGosp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="center"
+                android:text="-"
+                android:textSize="18sp" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="center"
+                android:text=":"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvTerminarzLayoutBrGoscie"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="center"
+                android:text="-"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvTerminarzLayoutGosc"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:text="Gość"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvTerminarzLayoutData"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="Data"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvTerminarzLayoutGodzina"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="Godzina"
+                android:textSize="18sp" />
+
+            <CheckBox
+                android:id="@+id/chbTerminarz"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

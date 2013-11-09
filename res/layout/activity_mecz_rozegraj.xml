@@ -1,0 +1,207 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MeczRozegraj" >
+   <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+		    
+		    <TextView
+		        android:id="@+id/tvMeczRozegrajGospodarz"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.4"
+		        android:gravity="right"
+		        android:text="Gospodarz"
+		        android:textSize="30sp" />
+		    
+		    <TextView
+		        android:id="@+id/tvMeczRozegrajBrGospodarz"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.1"
+		        android:gravity="right"
+		        android:text="0"
+		        android:textSize="30sp" />
+		    
+		    <TextView
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.1"
+		        android:gravity="center"
+		        android:text=":"
+		        android:textSize="30sp" />
+		    
+		    <TextView
+		        android:id="@+id/tvMeczRozegrajBrGosc"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.1"
+		        android:gravity="left"
+		        android:text="0"
+		        android:textSize="30sp" />
+		    
+		    <TextView
+		        android:id="@+id/tvMeczRozegrajGosc"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.4"
+		        android:gravity="left"
+		        android:text="Gość"
+		        android:textSize="30sp" />
+            
+   		 </LinearLayout>
+
+        <Button
+            android:id="@+id/btMeczRozegrajBrPrzeciwnik"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bramka przecinik" />
+   		 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+		    
+             <Button
+                 android:id="@+id/btMeczRozegrajTyl"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="0.2"
+                 android:text="&lt;" />
+             <Button
+                 android:id="@+id/btMeczRozegrajTyl5"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="0.2"
+                 android:text="&lt;&lt;" />
+             
+              <TextView
+		        android:id="@+id/tvMeczRozegrajMinuta"
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.3"
+		        android:gravity="right"
+		        android:text="0"
+		        android:textSize="30sp" />
+              <TextView
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="0.3"
+		        android:gravity="left"
+		        android:text="'"
+		        android:textSize="30sp" />
+               <Button
+                 android:id="@+id/btMeczRozegrajPrzod5"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="0.2"
+                 android:text=">>" />
+             
+             <Button
+                 android:id="@+id/btMeczRozegrajPrzod"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="0.2"
+                 android:text=">" />
+
+		    </LinearLayout>
+		    
+		    <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="horizontal">
+             <TextView
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="3"
+		        android:gravity="center"
+		        android:text=""
+		        android:textSize="18sp" />
+             <TextView
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="3"
+		        android:gravity="center"
+		        android:text=""
+		        android:textSize="18sp" />
+             <TextView
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center"
+		        android:text="Ż."
+		        android:textSize="18sp" />
+             <TextView
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center"
+		        android:text="Cz."
+		        android:textSize="18sp" />
+             <TextView
+		        android:layout_width="0dp"
+		        android:layout_height="wrap_content"
+		        android:layout_weight="1"
+		        android:gravity="center"
+		        android:text="Br."
+		        android:textSize="18sp" />
+		        
+             </LinearLayout>
+   		 
+        <ListView
+		        android:id="@+id/lvMeczRozegrajPodstawowi"
+		        android:layout_width="match_parent"
+		        android:layout_height="0dp"
+		        android:layout_weight="0.7">
+    	</ListView>
+    	 <Button
+                 android:id="@+id/btMeczRozegrajZmiana"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+                 android:text="Zmiana" />
+    	
+        <TextView
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center"
+		        android:text="Rezerwowi"
+		        android:textSize="30sp" />
+        <ListView
+		        android:id="@+id/lvMeczRozegrajRezerwowi"
+		        android:layout_width="match_parent"
+		        android:layout_height="0dp"
+		        android:layout_weight="0.3">
+    	</ListView>
+    	 <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+	    	<Button
+	                android:id="@+id/btMeczRozegrajZakoncz"
+	                android:layout_width="0dp"
+		        	android:layout_height="wrap_content"
+		        	android:layout_weight="1"
+	                android:text="Zakończ" />
+	    	<Button
+	                android:id="@+id/btMeczRozegrajStatystyki"
+	                android:layout_width="0dp"
+		        	android:layout_height="wrap_content"
+		        	android:layout_weight="1"
+	                android:text="Statystyki" />
+	    	</LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

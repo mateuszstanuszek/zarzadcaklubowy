@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_pilka" />
+        <TextView
+            android:id="@+id/tvStatystykiMinuta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="left"
+            android:text="0"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvStatystyki"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="statystyka"
+            android:textSize="18sp" />
+ 		<CheckBox
+           android:id="@+id/chbStatystyki"
+           android:layout_width="80dp"
+           android:layout_height="wrap_content"
+           android:focusable="true" />
+
+        </LinearLayout>
+
+
+
+</LinearLayout>
