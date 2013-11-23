@@ -550,6 +550,11 @@ public boolean updateNazwaDruzyny(long id, String nazwa) {
         return db.rawQuery("select * from mecz where mecz_dru_id_gospodarz=" + d + " or mecz_dru_id_gosc=" + d + " order by mecz_data,mecz_godzina", null);
     }
 	
+	public Cursor getMeczeZDruzynaPozniejsze(long druzyna, String data,long id) {
+		String d = String.valueOf(druzyna);
+        return db.rawQuery("select * from mecz where (mecz_dru_id_gospodarz=" + d + " or mecz_dru_id_gosc=" + d + ") and mecz_data>'" + data + "' and _id!=" + id, null);
+    }
+	
 	public Cursor getMecz(long id) {
         return db.rawQuery("select * from mecz where _id="+id, null);
     }
@@ -641,6 +646,13 @@ public boolean updateNazwaDruzyny(long id, String nazwa) {
 
 	    }
 	 
+	 public Cursor getStatystykiMeczNazwaMinuta(long meczID, String nazwa, int minuta) {
+	    	String where = "sta_mecz_id=" + meczID + " and sta_nazwa=" + "'" + nazwa +"'" + " and sta_minuta=" + minuta;
+	        String[] columns = {"_id","sta_mecz_id","sta_zaw_id","sta_nazwa","sta_minuta"};
+	        return db.query(DB_STATYSTYKA_TABELA, columns, where, null, null, null, null);
+
+	    }
+	 
 	 public Cursor getStatystykiMeczZawodnik(long meczID, long zawodnikID) {
 	    	String where = "sta_mecz_id=" + meczID + " and sta_zaw_id=" + zawodnikID;
 	        String[] columns = {"_id","sta_mecz_id","sta_zaw_id","sta_nazwa","sta_minuta"};
@@ -655,7 +667,8 @@ public boolean updateNazwaDruzyny(long id, String nazwa) {
 	 
 	 public Cursor getStatystykiBezSkladu(long meczID) {
 	        return db.rawQuery("select * from statystyka where sta_mecz_id=" + 
-	        meczID + " and (sta_nazwa='bramka' or sta_nazwa='zolta' or sta_nazwa='czerwona' or sta_nazwa='koniec' or sta_nazwa='bramkaprzeciwnik')" +
+	        meczID + " and (sta_nazwa='bramka' or sta_nazwa='zolta' or sta_nazwa='czerwona' or sta_nazwa='koniec'" +
+	        		"  or sta_nazwa='zmianazejscie'  or sta_nazwa='zmianawejscie' or sta_nazwa='bramkaprzeciwnik')" +
 	        " order by sta_minuta asc",null);
 
 	    }
@@ -761,6 +774,12 @@ public boolean updateNazwaDruzyny(long id, String nazwa) {
      public boolean deleteWykluczenia()
 	 {
 		 return db.delete(DB_WYKLUCZENIE_TABELA,null, null) > 0;
+	 }
+     
+     public boolean deleteWykluczenie(long meczID)
+	 {
+    	 String where = "wyk_mecz_id=" + meczID;
+		 return db.delete(DB_WYKLUCZENIE_TABELA,where, null) > 0;
 	 }
      
      

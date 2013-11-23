@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -425,8 +426,12 @@ public class Mecz extends Activity implements OnItemClickListener, OnClickListen
 			{
 				vHolder.tvImie.setText(zawodnik.getImie());
 				vHolder.tvNazwisko.setText(zawodnik.getNazwisko());
-				vHolder.tvImie.setTextColor(Color.BLUE);
-				vHolder.tvNazwisko.setTextColor(Color.BLUE);
+				vHolder.tvImie.setTextColor(Color.RED);
+				vHolder.tvNazwisko.setTextColor(Color.RED);
+				vHolder.tvImie.setPaintFlags(vHolder.tvImie.getPaintFlags() |
+                        Paint.STRIKE_THRU_TEXT_FLAG);
+				vHolder.tvNazwisko.setPaintFlags(vHolder.tvNazwisko.getPaintFlags() |
+                        Paint.STRIKE_THRU_TEXT_FLAG);
 				
 				
 			}
@@ -436,6 +441,10 @@ public class Mecz extends Activity implements OnItemClickListener, OnClickListen
 				vHolder.tvNazwisko.setText(zawodnik.getNazwisko());
 				vHolder.tvImie.setTextColor(Color.WHITE);
 				vHolder.tvNazwisko.setTextColor(Color.WHITE);
+				vHolder.tvImie.setPaintFlags(vHolder.tvNazwisko.getPaintFlags() &
+                        ~Paint.STRIKE_THRU_TEXT_FLAG);
+				vHolder.tvNazwisko.setPaintFlags(vHolder.tvNazwisko.getPaintFlags() &
+                        ~Paint.STRIKE_THRU_TEXT_FLAG);
 			}
 	        
 			return rowView;

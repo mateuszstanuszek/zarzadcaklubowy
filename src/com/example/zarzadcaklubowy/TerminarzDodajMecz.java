@@ -88,7 +88,7 @@ public class TerminarzDodajMecz extends Activity implements OnClickListener {
 		czas = (TimePicker)findViewById(R.id.czasTerminarz);
 		btZapisz.setOnClickListener(this);
 		
-		
+
 	}
 
 	@Override
@@ -123,8 +123,8 @@ public class TerminarzDodajMecz extends Activity implements OnClickListener {
 			else minuta = String.valueOf(czas.getCurrentMinute());
 				
 			
-			String d = String.valueOf(data.getYear()) + "-" + miesiac + "-" + dzien;
-			String cz = godzina + ":" + minuta + ":00";
+			String d = dzien + "/" + miesiac + "/" + String.valueOf(data.getYear()).substring(2, 4);
+			String cz = godzina + ":" + minuta;
 			
 			if(cursorAktualnySezon!=null && cursorGosc!=null && cursorGospodarz!= null)
 				if(baza.insertMecz(cursorAktualnySezon.getInt(cursorAktualnySezon.getColumnIndex("_id")),

@@ -26,24 +26,65 @@ public final class R {
          */
         public static final int activity_horizontal_margin=0x7f050000;
         public static final int activity_vertical_margin=0x7f050001;
+        public static final int text_size_high=0x7f050002;
+        public static final int text_size_high_medium=0x7f050003;
+        public static final int text_size_small=0x7f050004;
     }
     public static final class drawable {
-        public static final int Blue=0x7f020002;
-        public static final int PowderBlue=0x7f02000b;
-        public static final int black=0x7f020004;
-        public static final int brown=0x7f02000c;
-        public static final int green=0x7f020005;
-        public static final int grey=0x7f020008;
-        public static final int ic_launcher=0x7f020000;
-        public static final int ic_pilka=0x7f020001;
-        public static final int pink=0x7f020006;
-        public static final int red=0x7f020009;
-        public static final int violet=0x7f020007;
-        public static final int white=0x7f020003;
-        public static final int yellow=0x7f02000a;
+        public static final int Blue=0x7f020028;
+        public static final int PowderBlue=0x7f020031;
+        public static final int add128_icon=0x7f020000;
+        public static final int add_icon=0x7f020001;
+        public static final int anuluj_64icon=0x7f020002;
+        public static final int anuluj_icon=0x7f020003;
+        public static final int back_icon=0x7f020004;
+        public static final int black=0x7f02002a;
+        public static final int brown=0x7f020032;
+        public static final int czas32_icon=0x7f020005;
+        public static final int czas48_icon=0x7f020006;
+        public static final int czas64_icon=0x7f020007;
+        public static final int czerwona32_icon=0x7f020008;
+        public static final int czerwona48_icon=0x7f020009;
+        public static final int czerwona64_icon=0x7f02000a;
+        public static final int dane_klubu_icon=0x7f02000b;
+        public static final int delete_icon=0x7f02000c;
+        public static final int druzyny_icon=0x7f02000d;
+        public static final int edytuj64_icon=0x7f02000e;
+        public static final int edytuj_icon=0x7f02000f;
+        public static final int green=0x7f02002b;
+        public static final int grey=0x7f02002e;
+        public static final int ic_launcher=0x7f020010;
+        public static final int ic_pilka=0x7f020011;
+        public static final int next_icon=0x7f020012;
+        public static final int pilka32_icon=0x7f020013;
+        public static final int pilka48_icon=0x7f020014;
+        public static final int pilka64_icon=0x7f020015;
+        public static final int pink=0x7f02002c;
+        public static final int rect_text_edit=0x7f020016;
+        public static final int red=0x7f02002f;
+        public static final int save64_icon=0x7f020017;
+        public static final int save_icon=0x7f020018;
+        public static final int search_icon=0x7f020019;
+        public static final int show64_icon=0x7f02001a;
+        public static final int stadion128_icon=0x7f02001b;
+        public static final int stadion32_icon=0x7f02001c;
+        public static final int stadion48_icon=0x7f02001d;
+        public static final int stadion64_icon=0x7f02001e;
+        public static final int statystyki_icon=0x7f02001f;
+        public static final int tabela_icon=0x7f020020;
+        public static final int terminarz_icon=0x7f020021;
+        public static final int usun_icon=0x7f020022;
+        public static final int violet=0x7f02002d;
+        public static final int white=0x7f020029;
+        public static final int yellow=0x7f020030;
+        public static final int zawodnicy_icon=0x7f020023;
+        public static final int zolta128_icon=0x7f020024;
+        public static final int zolta32_icon=0x7f020025;
+        public static final int zolta48_icon=0x7f020026;
+        public static final int zolta64_icon=0x7f020027;
     }
     public static final class id {
-        public static final int action_settings=0x7f0900a0;
+        public static final int action_settings=0x7f0900a2;
         public static final int btAnuluj_Druzyna=0x7f090015;
         public static final int btDaneKlubu=0x7f090038;
         public static final int btDodaj_Druzyna=0x7f090017;
@@ -94,7 +135,7 @@ public final class R {
         public static final int btZawodnicyUsun=0x7f09006c;
         public static final int btZawodnicyZapisz=0x7f090076;
         public static final int chbStatystyki=0x7f09007c;
-        public static final int chbTerminarz=0x7f090094;
+        public static final int chbTerminarz=0x7f090095;
         public static final int checkBox1=0x7f090078;
         public static final int czasTerminarz=0x7f090049;
         public static final int dataTerminarz=0x7f090048;
@@ -109,8 +150,8 @@ public final class R {
         public static final int etTelefonEd=0x7f090009;
         public static final int etUstawieniaLKolejek=0x7f090056;
         public static final int etUstawieniaSezon=0x7f090055;
-        public static final int etWynikiLayoutBrGoscie=0x7f090097;
-        public static final int etWynikiLayoutBrGosp=0x7f090096;
+        public static final int etWynikiLayoutBrGoscie=0x7f090098;
+        public static final int etWynikiLayoutBrGosp=0x7f090097;
         public static final int etZawodnikAdres=0x7f090072;
         public static final int etZawodnikData=0x7f090071;
         public static final int etZawodnikEmail=0x7f090074;
@@ -119,11 +160,13 @@ public final class R {
         public static final int etZawodnikPesel=0x7f090070;
         public static final int etZawodnikTelefon=0x7f090073;
         public static final int imageView1=0x7f090079;
-        public static final int imgZawodnikStatystyka=0x7f090099;
+        public static final int imgZawodnikStatystyka=0x7f09009b;
         public static final int linearLayout1=0x7f090000;
         public static final int linearLayout_NowaDruzyna=0x7f090013;
         public static final int linearLayout_Widoczne=0x7f090016;
         public static final int llMeczZawodnicy=0x7f09001f;
+        public static final int llStatystykiZawodnikWiersz=0x7f09009a;
+        public static final int llTerminarzWiersz=0x7f09008d;
         public static final int lvDruzyny=0x7f090011;
         public static final int lvMeczPodstawowi=0x7f090021;
         public static final int lvMeczRezerwowi=0x7f090022;
@@ -162,14 +205,14 @@ public final class R {
         public static final int tvRok=0x7f090002;
         public static final int tvRozegrajImie=0x7f09007f;
         public static final int tvRozegrajNazwisko=0x7f090080;
-        public static final int tvSpinnerDruzyny=0x7f09009c;
-        public static final int tvSpinnerGosc=0x7f09009e;
-        public static final int tvSpinnerGospodarz=0x7f09009d;
-        public static final int tvSpinnerKolejka=0x7f09009f;
+        public static final int tvSpinnerDruzyny=0x7f09009e;
+        public static final int tvSpinnerGoscc=0x7f0900a1;
+        public static final int tvSpinnerGospodarzz=0x7f0900a0;
+        public static final int tvSpinnerKolejkaa=0x7f09009f;
         public static final int tvStatystyki=0x7f09007b;
         public static final int tvStatystykiMinuta=0x7f09007a;
-        public static final int tvStatystykiZawodnik=0x7f09009b;
-        public static final int tvStatystykiZawodnikMinuta=0x7f09009a;
+        public static final int tvStatystykiZawodnik=0x7f09009d;
+        public static final int tvStatystykiZawodnikMinuta=0x7f09009c;
         public static final int tvTabelaBramkiStracone=0x7f09008c;
         public static final int tvTabelaBramkiZdobyte=0x7f09008b;
         public static final int tvTabelaDruzyna=0x7f090085;
@@ -180,18 +223,18 @@ public final class R {
         public static final int tvTabelaRemisy=0x7f090089;
         public static final int tvTabelaZwyciestwa=0x7f090088;
         public static final int tvTelefon=0x7f090003;
-        public static final int tvTerminarzLayoutBrGoscie=0x7f090090;
-        public static final int tvTerminarzLayoutBrGosp=0x7f09008f;
-        public static final int tvTerminarzLayoutData=0x7f090092;
-        public static final int tvTerminarzLayoutGodzina=0x7f090093;
-        public static final int tvTerminarzLayoutGosc=0x7f090091;
-        public static final int tvTerminarzLayoutGospodarz=0x7f09008e;
-        public static final int tvTerminarzLayoutKolejka=0x7f09008d;
+        public static final int tvTerminarzLayoutBrGoscie=0x7f090091;
+        public static final int tvTerminarzLayoutBrGosp=0x7f090090;
+        public static final int tvTerminarzLayoutData=0x7f090093;
+        public static final int tvTerminarzLayoutGodzina=0x7f090094;
+        public static final int tvTerminarzLayoutGosc=0x7f090092;
+        public static final int tvTerminarzLayoutGospodarz=0x7f09008f;
+        public static final int tvTerminarzLayoutKolejka=0x7f09008e;
         public static final int tvUstawieniaLiczbaKolejek=0x7f09004f;
         public static final int tvUstawieniaSezon=0x7f09004e;
-        public static final int tvWynikiLayoutGosc=0x7f090098;
-        public static final int tvWynikiLayoutGospodarz=0x7f090095;
-        public static final int tvZawodnicyAdres=0x7f09005c;
+        public static final int tvWynikiLayoutGosc=0x7f090099;
+        public static final int tvWynikiLayoutGospodarz=0x7f090096;
+        public static final int tvZawodnicyAdress=0x7f09005d;
         public static final int tvZawodnicyBramki=0x7f090064;
         public static final int tvZawodnicyCzKartki=0x7f090066;
         public static final int tvZawodnicyData=0x7f09005b;
@@ -200,9 +243,9 @@ public final class R {
         public static final int tvZawodnicyMecze=0x7f090062;
         public static final int tvZawodnicyMinuty=0x7f090063;
         public static final int tvZawodnicyNazwisko=0x7f090059;
-        public static final int tvZawodnicyPesel=0x7f09005a;
+        public static final int tvZawodnicyPesell=0x7f09005a;
         public static final int tvZawodnicyPozycja=0x7f09005f;
-        public static final int tvZawodnicyTelefon=0x7f09005d;
+        public static final int tvZawodnicyTele=0x7f09005c;
         public static final int tvZawodnicyZKartki=0x7f090065;
     }
     public static final class layout {
@@ -298,5 +341,9 @@ public final class R {
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f070001;
+        public static final int grey_less_itemTab_style=0x7f070004;
+        public static final int grey_less_item_style=0x7f070002;
+        public static final int grey_more_itemTab_style=0x7f070005;
+        public static final int grey_more_item_style=0x7f070003;
     }
 }

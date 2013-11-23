@@ -10,8 +10,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -22,16 +22,18 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Imię:"
-                android:textSize="18sp" />
+				android:textSize="@dimen/text_size_high"  />
 
             <EditText
                 android:id="@+id/etZawodnikImie"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:ems="10" />
+                android:textSize="@dimen/text_size_high" 
+                android:cursorVisible="false"
+                android:singleLine="true" />
         </LinearLayout>
 
         <LinearLayout
@@ -42,16 +44,18 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Nazwisko:"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_high"  />
 
             <EditText
                 android:id="@+id/etZawodnikNazwisko"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:ems="10"
+                android:textSize="@dimen/text_size_high" 
+                android:cursorVisible="false"
+                android:singleLine="true"
                  />
         </LinearLayout>
         
@@ -63,16 +67,18 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Pesel:"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_high"  />
 
             <EditText
                 android:id="@+id/etZawodnikPesel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:ems="10"
+                android:textSize="@dimen/text_size_high" 
+                android:cursorVisible="false"
+                android:singleLine="true"
                 android:inputType="number"  />
         </LinearLayout>
         
@@ -85,16 +91,18 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Data ur.:"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_high"  />
 
             <EditText
                 android:id="@+id/etZawodnikData"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:ems="10"
+                android:textSize="@dimen/text_size_high" 
+                android:cursorVisible="false"
+                android:singleLine="true"
                 android:inputType="date" />
         </LinearLayout>
         
@@ -107,16 +115,18 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Adres:"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_high"  />
 
             <EditText
                 android:id="@+id/etZawodnikAdres"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:ems="10"
+                android:textSize="@dimen/text_size_high" 
+                android:cursorVisible="false"
+                android:singleLine="true"
                  />
         </LinearLayout>
         
@@ -128,16 +138,18 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Telefon:"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_high"  />
 
             <EditText
                 android:id="@+id/etZawodnikTelefon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:ems="10"
+                android:textSize="@dimen/text_size_high" 
+                android:cursorVisible="false"
+                android:singleLine="true"
                 android:inputType="number"
                  />
         </LinearLayout>
@@ -150,16 +162,18 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Email:"
-                android:textSize="18sp" />
+               	android:textSize="@dimen/text_size_high" />
 
             <EditText
                 android:id="@+id/etZawodnikEmail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:ems="10"
+                android:textSize="@dimen/text_size_high" 
+                android:cursorVisible="false"
+                android:singleLine="true"
                  />
         </LinearLayout>
         
@@ -171,23 +185,30 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Pozycja:"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_high"  />
 
             <Spinner
         		android:id="@+id/spinnerPozycje"
         		android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.75"
-                android:ems="10" />
+                android:layout_weight="0.75" />
         </LinearLayout>
 
+       <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="horizontal" >
             <Button
                 android:id="@+id/btZawodnicyZapisz"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:drawableTop="@drawable/save_icon"
                 android:text="Zapisz" />
+            </LinearLayout>
         
     </LinearLayout>
 

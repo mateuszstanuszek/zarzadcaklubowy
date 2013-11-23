@@ -6,110 +6,155 @@
 
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal" 
+            android:background="#3F3F3F">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Kolejka:"
-                android:textSize="18sp" />
+				android:layout_span="3"
+            	android:padding="18dip" 
+            	android:textSize="@dimen/text_size_high_medium"
+            	android:background="#3F3F3F"
+            	android:textColor="@color/black"
+                />
 
             <Spinner
         		android:id="@+id/spinnerTerminarzKolejka"
         		android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:ems="10" />
+                android:layout_span="3"
+            	android:padding="18dip"
+
+                 />
         </LinearLayout>
             <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal" 
+            android:background="#232323">
         
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Gospodarz:"
-                android:textSize="18sp" />
+				android:layout_span="3"
+            	android:padding="18dip" 
+            	android:textSize="@dimen/text_size_high_medium"
+            	android:textColor="@color/black" />
 
             <Spinner
         		android:id="@+id/spinnerTerminarzGodpodarz"
         		android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:ems="10" />
+                android:layout_span="3"
+            	android:padding="18dip"
+/>
         </LinearLayout>
         
     <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal" 
+            android:background="#3F3F3F">
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.35"
                 android:text="Gość:"
-                android:textSize="18sp" />
+				android:layout_span="3"
+            	android:padding="18dip" 
+            	android:textSize="@dimen/text_size_high_medium" 
+            	android:textColor="@color/black"/>
 
             <Spinner
         		android:id="@+id/spinnerTerminarzGosc"
         		android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
-                android:ems="10" />
+                android:layout_span="3"
+            	android:padding="18dip"
+ />
         </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#232323"
         >
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="Data:"
-            android:textSize="18sp" />
-
-        <DatePicker
-            android:id="@+id/dataTerminarz"
+            android:layout_weight="1"
+            android:text="Data"
+				android:layout_span="3"
+            	android:padding="18dip" 
+            	android:textSize="@dimen/text_size_high_medium"
+            	android:gravity="center"
+            	android:textColor="@color/black" />
+		<TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_weight="0.75"/>
+            android:layout_weight="1"
+            android:text="Godzina"
+				android:layout_span="3"
+            	android:padding="18dip" 
+            	android:textSize="@dimen/text_size_high_medium"
+            	android:gravity="center"
+            	android:textColor="@color/black"
+            	/>
+        
 
     </LinearLayout>
     
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#3F3F3F"
         >
 
-        <TextView
+        <DatePicker
+            android:id="@+id/dataTerminarz"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="Godzina:"
-            android:textSize="18sp" />
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:calendarViewShown="false"/>
+        
 
         <TimePicker
             android:id="@+id/czasTerminarz"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_weight="0.75"/>
+            android:layout_gravity="center"
+            android:layout_weight="1"/>
 
     </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+            android:orientation="horizontal" >
 
-    <Button
+   <Button
         android:id="@+id/btTerminarzZapisz"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Zapisz" />
+        android:text="Dodaj"
+        android:drawableTop="@drawable/add128_icon" />
+        </LinearLayout>
+
+ 
     
 </LinearLayout>

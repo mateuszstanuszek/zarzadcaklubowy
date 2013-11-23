@@ -14,7 +14,9 @@
                 android:layout_weight="1.25"
                 android:gravity="center"
                 android:text="Gospodarz"
-                android:textSize="18sp" />
+               	android:layout_span="3"
+            	android:padding="5dip" 
+            	android:textSize="@dimen/text_size_small" />
             <EditText
                 android:id="@+id/etWynikiLayoutBrGosp"
                 android:layout_width="0dp"
@@ -23,14 +25,18 @@
                 android:gravity="center"
                 android:text="00"
                 android:inputType="number"
+                               	android:layout_span="3"
+            	android:padding="5dip" 
+            	android:textSize="@dimen/text_size_small"
                />
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.25"
+                android:layout_weight="0.1"
                 android:gravity="center"
                 android:text=":"
-                android:textSize="18sp" />
+ 
+            	android:textSize="@dimen/text_size_small" />
             <EditText
                 android:id="@+id/etWynikiLayoutBrGoscie"
                 android:layout_width="0dp"
@@ -39,6 +45,9 @@
                 android:gravity="center"
                 android:text="00"
                 android:inputType="number"
+                android:layout_span="3"
+            	android:padding="5dip" 
+            	android:textSize="@dimen/text_size_small"
                  />
             <TextView
                 android:id="@+id/tvWynikiLayoutGosc"
@@ -47,7 +56,9 @@
                 android:layout_weight="1.25"
                 android:gravity="center"
                 android:text="Gość"
-                android:textSize="18sp" />
+               	android:layout_span="3"
+            	android:padding="5dip" 
+            	android:textSize="@dimen/text_size_small" />
     
 </LinearLayout>
 </LinearLayout>

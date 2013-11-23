@@ -17,4 +17,34 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="grey_less_item_style">
+        <item name="android:background">#3F3F3F</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">18dip</item>
+        <item name="android:layout_span">3</item>
+    </style>
+
+    <style name="grey_more_item_style">
+        <item name="android:background">#232323</item>
+        <item name="android:padding">18dip</item>
+        <item name="android:layout_span">3</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    
+    
+    <style name="grey_less_itemTab_style">
+        <item name="android:background">#3F3F3F</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_span">3</item>
+    </style>
+
+    <style name="grey_more_itemTab_style">
+        <item name="android:background">#232323</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_span">3</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+
 </resources>

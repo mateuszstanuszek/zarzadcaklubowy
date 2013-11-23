@@ -7,7 +7,9 @@ import java.util.List;
 import android.os.Bundle;
 import android.R.bool;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
@@ -42,6 +44,8 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 	private int pozycjaPodstawowi = -2;
 	private int pozycjaRezerwowi = -2;
 	private ArrayList<Integer> wykluczeniaPoIlu;
+	private Cursor cursorZmiany;
+	private int iloscZmian;
 
 
 	@Override
@@ -81,8 +85,12 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 		Bundle extras = getIntent().getExtras(); 
 		if(extras !=null) {
 			
-		    meczID = extras.getLong("mecz");
-		    
+		    meczID = extras.getLong("mecz");   
+		    cursorZmiany = baza.getStatystykiMeczNazwa(meczID, "zmianazejscie");
+		    if(cursorZmiany!=null && cursorZmiany.moveToFirst())
+		    {
+		    	iloscZmian = cursorZmiany.getCount();
+		    }
 		    Cursor cursorMinuta = baza.getStatystykiMeczu(meczID);
 		    if(cursorMinuta!=null && cursorMinuta.moveToFirst())
 		    {
@@ -242,19 +250,21 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position,long arg3) {
 				
-				if(pozycjaRezerwowi!=position)
-				{
-					view.setSelected(true);
-					pozycjaRezerwowi = position;
-					zmianaRezerwowy = (ZawodnikMecz)lvRezerwowi.getItemAtPosition(position);
-				}
-
-				else
-				{
-					lvRezerwowi.clearChoices();
-					pozycjaRezerwowi = -2;
-					zmianaRezerwowy = null;
-				}
+				
+					if(pozycjaRezerwowi!=position)
+					{
+						view.setSelected(true);
+						pozycjaRezerwowi = position;
+						zmianaRezerwowy = (ZawodnikMecz)lvRezerwowi.getItemAtPosition(position);
+					}
+	
+					else
+					{
+						lvRezerwowi.clearChoices();
+						pozycjaRezerwowi = -2;
+						zmianaRezerwowy = null;
+					}
+				
 					
 				
 			}
@@ -407,31 +417,67 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 			}
 			break;
 		case R.id.btMeczRozegrajZmiana:
-			if(zmianaPodstawowy!=null && zmianaRezerwowy!=null)
-			{
-				ZawodnikMecz zp = (ZawodnikMecz)lvPodstawowi.getItemAtPosition(pozycjaPodstawowi);
-				podstawowiAdapter.remove(zp);
-				podstawowiAdapter.add(zmianaRezerwowy);
-				ZawodnikMecz zr = (ZawodnikMecz)lvRezerwowi.getItemAtPosition(pozycjaRezerwowi);
-				rezerwowiAdapter.remove(zr);
-				rezerwowiAdapter.add(zmianaPodstawowy);
-				
-				baza.insertStatystyka(meczID, zp.getId(), "zejscie", Integer.valueOf(tvMinuta.getText().toString()));
-				baza.insertStatystyka(meczID, zr.getId(), "wejscie", Integer.valueOf(tvMinuta.getText().toString()));
-				baza.insertStatystyka(meczID, zp.getId(), "zmianazejscie", Integer.valueOf(tvMinuta.getText().toString()));
-				baza.insertStatystyka(meczID, zr.getId(), "zmianawejscie", Integer.valueOf(tvMinuta.getText().toString()));
-				
-				zmianaPodstawowy = null;
-				zmianaRezerwowy = null;
-				lvPodstawowi.clearChoices();
-				pozycjaPodstawowi = -2;
-				lvRezerwowi.clearChoices();
-				pozycjaRezerwowi = -2;
-				
-			}
 			
-			else
-				Toast.makeText(context, "Wybierz zawodników do zmiany", Toast.LENGTH_SHORT).show();
+				if(zmianaPodstawowy!=null && zmianaRezerwowy!=null)
+				{
+					if(iloscZmian<4)
+					{
+						
+						AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+				        alertDialog.setTitle("Zmiana");
+				        alertDialog.setMessage("Nie istnieje mo¿liwosæ cofniêcia zmiany. Czy na pewno chcesz kontynuowaæ?");
+				        alertDialog.setPositiveButton("Kontynuuj", new DialogInterface.OnClickListener() {
+				            public void onClick(DialogInterface dialog,int which) {
+				            	
+								ZawodnikMecz zp = (ZawodnikMecz)lvPodstawowi.getItemAtPosition(pozycjaPodstawowi);
+								podstawowiAdapter.remove(zp);
+								podstawowiAdapter.add(zmianaRezerwowy);
+								ZawodnikMecz zr = (ZawodnikMecz)lvRezerwowi.getItemAtPosition(pozycjaRezerwowi);
+								rezerwowiAdapter.remove(zr);
+								rezerwowiAdapter.add(zmianaPodstawowy);
+								
+								baza.insertStatystyka(meczID, zp.getId(), "zejscie", Integer.valueOf(tvMinuta.getText().toString()));
+								baza.insertStatystyka(meczID, zr.getId(), "wejscie", Integer.valueOf(tvMinuta.getText().toString()));
+								baza.insertStatystyka(meczID, zp.getId(), "zmianazejscie", Integer.valueOf(tvMinuta.getText().toString()));
+								baza.insertStatystyka(meczID, zr.getId(), "zmianawejscie", Integer.valueOf(tvMinuta.getText().toString()));
+								
+								zmianaPodstawowy = null;
+								zmianaRezerwowy = null;
+								lvPodstawowi.clearChoices();
+								pozycjaPodstawowi = -2;
+								lvRezerwowi.clearChoices();
+								pozycjaRezerwowi = -2;
+								
+								
+								cursorZmiany = baza.getStatystykiMeczNazwa(meczID, "zmianazejscie");
+								 if(cursorZmiany!=null && cursorZmiany.moveToFirst())
+								    {
+								    	iloscZmian = cursorZmiany.getCount();
+								    }
+									
+				            	
+				            }
+				        });
+		
+				        alertDialog.setNegativeButton("Anuluj", new DialogInterface.OnClickListener() {
+				            public void onClick(DialogInterface dialog, int which) {
+				            dialog.cancel();
+				            }
+				        });
+				        
+				        alertDialog.show();
+				        
+
+						}
+					else
+						Toast.makeText(context, "Wykorzystane wszystkie zmiany", Toast.LENGTH_SHORT).show();
+				}
+				
+				else
+					Toast.makeText(context, "Wybierz zawodników do zmiany", Toast.LENGTH_SHORT).show();
+			
+			
+			
 			break;
 			
 		}

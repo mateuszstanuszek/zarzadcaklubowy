@@ -12,127 +12,76 @@
     
 
     <LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
             android:text="Nazwa:"
-            android:textSize="18sp" />
+            android:textSize="@dimen/text_size_high"/>
 
         <EditText
             android:id="@+id/etNazwaKlEd"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.75"
-            android:ems="10" 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_high"
             android:inputType="textPersonName"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="Rok:"
-            android:textSize="18sp" />
+            android:text="Rok założenia"
+           android:textSize="@dimen/text_size_high"/>
 
         <EditText
             android:id="@+id/etRokEd"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.75"
-            android:ems="10" 
-            android:inputType="number"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+            android:inputType="number"
+            android:textSize="@dimen/text_size_high"/>
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.25"
-            android:text="Telefon:"
-            android:textSize="18sp" />
+            android:text="Telefon"
+            android:textSize="@dimen/text_size_high" />
 
         <EditText
             android:id="@+id/etTelefonEd"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.75"
-            android:ems="10" 
-            android:inputType="number"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+            android:inputType="number"
+            android:textSize="@dimen/text_size_high"/>
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="0.25"
-            android:text="Adres:"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.75"
-            android:orientation="horizontal" >
+            android:text="Adres"
+            android:textSize="@dimen/text_size_high" />
 
             <EditText
                 android:id="@+id/etAdresEd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="5"
-                android:inputType="text" />
-        </LinearLayout>
+                android:inputType="text"
+                android:textSize="@dimen/text_size_high" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.25" />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.01"
-            android:orientation="horizontal" >
-
-           
-        </LinearLayout>
-        <Button
-            android:id="@+id/btZatwierdzEd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Zatwierdź" />
-    </LinearLayout>
-
+   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+            <Button
+                android:id="@+id/btZatwierdzEd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/save_icon"
+                android:text="Zapisz" />
+            </LinearLayout>
 </LinearLayout>
     
 

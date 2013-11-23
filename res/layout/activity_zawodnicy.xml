@@ -24,19 +24,138 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="right"
                 android:text="---"
-                android:textSize="30sp" />
+                android:textSize="@dimen/text_size_high"
+                android:layout_span="3"
+            	android:padding="18dip" 
+            	android:background="#232323"/>
 
             <TextView
                 android:id="@+id/tvZawodnicyNazwisko"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:gravity="center"
+                android:gravity="left"
                 android:text="---"
-                android:textSize="30sp" />
+                android:textSize="@dimen/text_size_high"
+                android:layout_span="3"
+            	android:padding="18dip" 
+            	android:background="#232323"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="pesel"
+                android:textColor="@color/black"
+               	android:layout_span="3"
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium" 
+                android:textStyle="bold"  />
+            
+             <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="data ur."
+                android:layout_span="3"
+                android:textColor="@color/black" 
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium" 
+                android:textStyle="bold"   />
+             
+            
+              
+              <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="telefon"
+               	android:layout_span="3"
+               	android:textColor="@color/black"
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium"  
+                android:textStyle="bold"  />
+
+            
+        </LinearLayout>
+        
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tvZawodnicyPesell"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="pesel"
+               	android:layout_span="3"
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium"  />
+            
+             <TextView
+                 android:id="@+id/tvZawodnicyData"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="data ur."
+                android:layout_span="3"
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium"   />
+               <TextView
+                   android:id="@+id/tvZawodnicyTele"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="telefon"
+               	android:layout_span="3"
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium"   />
+             
+            
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            
+            <TextView
+                android:id="@+id/tvZawodnicyAdress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="adr"
+                android:textSize="@dimen/text_size_high_medium"
+                android:layout_span="3"
+            	android:padding="18dip" 
+            	android:background="#232323"  />
+
+    
+
+        </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -48,17 +167,26 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="PESEL:"
-                android:textSize="18sp" />
-
+                android:text="email"
+                android:layout_span="3"
+               	android:textColor="@color/black"
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium" 
+                android:textStyle="bold"   />
+            
             <TextView
-                android:id="@+id/tvZawodnicyPesel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="---"
-                android:textSize="18sp" />
+                android:text="pozycja"
+               	android:layout_span="3"
+               	android:textColor="@color/black"
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium"
+                android:textStyle="bold"  />
+
+            
         </LinearLayout>
 
         <LinearLayout
@@ -66,83 +194,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Data ur.:"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvZawodnicyData"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="---"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Adres:"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvZawodnicyAdres"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="---"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Telefon:"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/tvZawodnicyTelefon"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="---"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Email:"
-                android:textSize="18sp" />
-
+            
             <TextView
                 android:id="@+id/tvZawodnicyEmail"
                 android:layout_width="0dp"
@@ -150,21 +202,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="---"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Pozycja:"
-                android:textSize="18sp" />
+                android:layout_span="3"
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium"  />
 
             <TextView
                 android:id="@+id/tvZawodnicyPozycja"
@@ -173,7 +213,9 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="---"
-                android:textSize="18sp" />
+               	android:layout_span="3"
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium"   />
         </LinearLayout>
 
         <LinearLayout
@@ -197,36 +239,41 @@
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
                 	android:gravity="center"
-                	android:text="L.meczów"
-                	android:textSize="18sp" />
+                	android:text="mecze"
+                	android:textSize="18sp" 
+                	android:drawableTop="@drawable/stadion64_icon"/>
                 <TextView
                 	android:layout_width="0dp"
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
                 	android:gravity="center"
-                	android:text="L.minut"
-                	android:textSize="18sp" />
+                	android:text="minuty"
+                	android:textSize="18sp" 
+                	android:drawableTop="@drawable/czas64_icon"/>
                 <TextView
                 	android:layout_width="0dp"
                		android:layout_height="wrap_content"
                 	android:layout_weight="1"
                 	android:gravity="center"
-                	android:text="Bramki"
-                	android:textSize="18sp" />
+                	android:text="bramki"
+                	android:textSize="18sp" 
+                	android:drawableTop="@drawable/pilka64_icon"/>
                 <TextView
                 	android:layout_width="0dp"
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
                 	android:gravity="center"
-                	android:text="Ż.kartki"
-                	android:textSize="18sp" />
+                	android:text="ż.kartki"
+                	android:textSize="18sp" 
+                	android:drawableTop="@drawable/zolta64_icon"/>
                 <TextView
                 	android:layout_width="0dp"
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
                 	android:gravity="center"
-                	android:text="Cz.kartki"
-                	android:textSize="18sp" />
+                	android:text="cz.kartki"
+                	android:textSize="18sp" 
+                	android:drawableTop="@drawable/czerwona64_icon"/>
 
             </TableRow>
 
@@ -242,7 +289,7 @@
 	                android:layout_weight="1"
 	                android:gravity="center"
 	                android:text="-"
-	                android:textSize="18sp" />
+	                android:textSize="@dimen/text_size_high_medium" />
                 <TextView
 	                android:id="@+id/tvZawodnicyMinuty"
 	                android:layout_width="0dp"
@@ -250,7 +297,7 @@
 	                android:layout_weight="1"
 	                android:gravity="center"
 	                android:text="-"
-	                android:textSize="18sp" />
+	                android:textSize="@dimen/text_size_high_medium" />
                 <TextView
 	                android:id="@+id/tvZawodnicyBramki"
 	                android:layout_width="0dp"
@@ -258,7 +305,7 @@
 	                android:layout_weight="1"
 	                android:gravity="center"
 	                android:text="-"
-	                android:textSize="18sp" />
+	                android:textSize="@dimen/text_size_high_medium" />
                 <TextView
 	                android:id="@+id/tvZawodnicyZKartki"
 	                android:layout_width="0dp"
@@ -266,7 +313,7 @@
 	                android:layout_weight="1"
 	                android:gravity="center"
 	                android:text="-"
-	                android:textSize="18sp" />
+	                android:textSize="@dimen/text_size_high_medium" />
                 <TextView
 	                android:id="@+id/tvZawodnicyCzKartki"
 	                android:layout_width="0dp"
@@ -274,7 +321,7 @@
 	                android:layout_weight="1"
 	                android:gravity="center"
 	                android:text="-"
-	                android:textSize="18sp" />
+	                android:textSize="@dimen/text_size_high_medium" />
                 
             </TableRow>
 
@@ -290,44 +337,54 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
         </ListView>
+        
+
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="horizontal" >
 
             <Button
                 android:id="@+id/btZawodnicyPoprzedni"
                 android:layout_width="0dp"
-                	android:layout_height="wrap_content"
-                	android:layout_weight="1"
-                android:text="Poprzedni" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Poprzedni" 
+                android:drawableTop="@drawable/back_icon"/>
 
             <Button
                 android:id="@+id/btZawodnicyDodaj"
                 android:layout_width="0dp"
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
-                android:text="Dodaj" />
+                android:text="Dodaj" 
+                android:drawableTop="@drawable/add_icon"/>
 
             <Button
                 android:id="@+id/btZawodnicyEdytuj"
                 android:layout_width="0dp"
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
-                android:text="Edytuj" />
+                android:text="Edytuj" 
+                android:drawableTop="@drawable/edytuj64_icon"/>
 
             <Button
                 android:id="@+id/btZawodnicyUsun"
                 android:layout_width="0dp"
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
-                android:text="Usuń" />
+                android:text="Usuń" 
+                android:drawableTop="@drawable/delete_icon"/>
             <Button
                 android:id="@+id/btZawodnicyNastepny"
                 android:layout_width="0dp"
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
-                android:text="Następny" />
+                android:text="Następny"
+                android:drawableTop="@drawable/next_icon" />
 
         </LinearLayout>
 

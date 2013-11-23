@@ -5,33 +5,40 @@
     android:layout_height="wrap_content"
     android:gravity="center" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        
-
-    </LinearLayout>
 
 	<LinearLayout
         android:id="@+id/linearLayout_Widoczne"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+       
+        >
 
        <TextView
+           style="@style/grey_more_item_style"
            android:id="@+id/tvNazwaDruzyny"
-           android:layout_width="fill_parent"
+           android:layout_width="0dp"
            android:layout_height="wrap_content"
            android:layout_weight="1"
-           android:gravity="center"
-           android:text="tex"
-           android:textAppearance="?android:attr/textAppearanceLarge" />
+           
+           android:text="tex" 
+           android:textSize="@dimen/text_size_high_medium"/>
 
-       <CheckBox
-           android:id="@+id/checkBox1"
-           android:layout_width="80dp"
-           android:layout_height="wrap_content"
-           android:focusable="true" />
+       <LinearLayout
+           android:layout_width="0dp"
+           android:layout_height="match_parent"
+           android:layout_weight="0.3"
+           android:orientation="vertical" 
+           style="@style/grey_less_item_style"
+           android:gravity="center">
+
+           <CheckBox
+               android:id="@+id/checkBox1"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:focusable="true"
+               />
+
+       </LinearLayout>
  
     </LinearLayout>
 

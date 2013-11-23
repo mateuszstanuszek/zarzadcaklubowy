@@ -21,14 +21,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="0.90"
-            android:drawSelectorOnTop="true" >
+            android:drawSelectorOnTop="true" 
+            android:divider="#0F0F0F"
+            android:dividerHeight="1dp">
         </ListView>
 
         <EditText
             android:id="@+id/etNazwa_Druzyna"
             android:layout_width="match_parent"
-            android:layout_height="47dp"
-            android:ems="10"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_high"
             android:hint="Wprowadź nazwę drużyny..."
             android:visibility="gone" >
 
@@ -46,6 +48,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableTop="@drawable/save_icon"
                 android:text="Zapisz" >
             </Button>
 
@@ -54,6 +57,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:drawableTop="@drawable/anuluj_icon"
                 android:text="Anuluj" >
             </Button>
         </LinearLayout>
@@ -68,7 +72,9 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Dodaj drużyne" >
+                android:drawableTop="@drawable/add128_icon"
+                android:text="Dodaj" 
+                >
             </Button>
 
             <Button
@@ -76,7 +82,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Usuń zaznaczone" >
+                android:drawableTop="@drawable/usun_icon"
+                android:text="Usuń wybrane" >
             </Button>
         </LinearLayout>
     </LinearLayout>

@@ -64,48 +64,51 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+             >
 
             <Button
                 android:id="@+id/btMeczPoprzedni"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="0.4"
-                android:text="&lt;" />
+                android:drawableLeft="@drawable/back_icon"
+                android:background="@color/black"/>
 
             <TextView
                 android:id="@+id/tvMeczGospodarz"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10"
-                android:gravity="right"
+                
+                android:gravity="center_vertical|center_horizontal"
                 android:text="Gospodarz"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/text_size_high"/>
             
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="0.1"
                 android:gravity="center"
                 android:text=":"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/text_size_high"/>
 
             <TextView
                 android:id="@+id/tvMeczGosc"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="left"
+                android:gravity="center_vertical|center_horizontal"
                 android:text="Gość"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
+                android:textSize="@dimen/text_size_high" />
             
             <Button
                 android:id="@+id/btMeczNastepny"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="0.4"
-                android:text=">" />
+                android:drawableRight="@drawable/next_icon"
+                android:background="@color/black"/>
 
         </LinearLayout>
 
@@ -119,7 +122,7 @@
         <LinearLayout
             android:id="@+id/llMeczZawodnicy"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="0.8" >
 
             <LinearLayout
@@ -130,19 +133,22 @@
 
                  <TextView
                      android:layout_width="match_parent"
-                     android:layout_height="0dp"
-                     android:layout_weight="0.1"
+                     android:layout_height="wrap_content"
                      android:gravity="center"
                      android:text="Zawodnicy"
                      android:textAppearance="?android:attr/textAppearanceLarge" />
 
 	            <ListView
 	                android:id="@+id/lvMeczZawodnicy"
-	               android:layout_width="wrap_content"
+	               android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.9" >
+                    android:layout_weight="0.9"
+                    android:divider="#0F0F0F"
+           			android:dividerHeight="1dp" >
 
             </ListView>
+            
+
             </LinearLayout>
 
             <LinearLayout
@@ -153,33 +159,35 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.1"
+                    android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Podstawowi"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <ListView
                     android:id="@+id/lvMeczPodstawowi"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.6" >
+                    android:layout_weight="0.6"
+                    android:divider="#0F0F0F"
+            android:dividerHeight="1dp" >
 
                 </ListView>
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.1"
-                    android:gravity="center"
+                    android:layout_height="wrap_content"
                     android:text="Rezerwowi"
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <ListView
                     android:id="@+id/lvMeczRezerwowi"
-                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.2" >
+                    android:layout_weight="0.2" 
+                    android:divider="#0F0F0F"
+            android:dividerHeight="1dp">
 
                 </ListView>
 

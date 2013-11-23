@@ -10,6 +10,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -18,10 +19,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.Toast;
 
 public class Terminarz extends Activity implements OnClickListener{
 	
@@ -104,89 +107,122 @@ public class Terminarz extends Activity implements OnClickListener{
 			break;
 		case R.id.btTerminarzUsun:
 			for (Integer i : dataAdapter.POZYCJE) {
+				
 				cursorUsun = (Cursor)lvTerminarz.getItemAtPosition(i);
+				long UsunID = cursorUsun.getLong(cursorUsun.getColumnIndex("_id"));
+				Cursor cursorMojaDruzyna = baza.getDaneKlubu();
+				long mojaDruzynaID = -1;
+				
+				boolean czyMoznaUsunac = false;
+				
+				
+				
+				
 				if(cursorUsun!=null)
 				{
-					String bramkiGosp = cursorUsun.getString(cursorUsun.getColumnIndex("mecz_bramkigosp"));
-					String bramkiGosc = cursorUsun.getString(cursorUsun.getColumnIndex("mecz_bramkigosc"));
-					
-					int idGospodarz, idGosc;
-					idGospodarz = cursorUsun.getInt(cursorUsun.getColumnIndex("mecz_dru_id_gospodarz"));
-					idGosc = cursorUsun.getInt(cursorUsun.getColumnIndex("mecz_dru_id_gosc"));
-					cursorGospodarz = baza.getNazwyDruzyn(idGospodarz);
-					cursorGosc = baza.getNazwyDruzyn(idGosc);
-					int gospodarzMecze, gospodarzPunkty, gospodarzZwyciestwa, gospodarzRemisy, gospodarzPorazki,gospodarzZdobyte, gospodarzStracone,
-						goscMecze, goscPunkty,goscZwyciestwa, goscRemisy, goscPorazki,goscZdobyte, goscStracone, brGosp,brGosc;
-					
-					
-					if(!bramkiGosp.equals("") && !bramkiGosc.equals(""))
+					if(cursorMojaDruzyna!=null && cursorMojaDruzyna.moveToFirst())
 					{
-						brGosp = Integer.valueOf(bramkiGosp);
-						brGosc = Integer.valueOf(bramkiGosc);
-						if(cursorGospodarz!=null && cursorGospodarz.moveToFirst())
-						{
-							gospodarzMecze = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_mecze")) - 1;
-							if(brGosp>brGosc)
-							{
-								gospodarzZwyciestwa = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_zwyciestwa")) - 1;
-								gospodarzRemisy = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_remisy"));
-								gospodarzPorazki = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_porazki"));
-								gospodarzPunkty = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_punkty")) - 3;
-							}
-							else if (brGosp==brGosc)
-							{
-								gospodarzRemisy = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_remisy")) - 1;
-								gospodarzZwyciestwa = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_zwyciestwa"));
-								gospodarzPorazki = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_porazki"));
-								gospodarzPunkty = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_punkty")) - 1;
-							}
-							else
-							{
-								gospodarzPorazki = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_porazki")) - 1;
-								gospodarzRemisy = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_remisy"));
-								gospodarzZwyciestwa = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_zwyciestwa"));
-								gospodarzPunkty = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_punkty"));
-							}
-							
-							gospodarzZdobyte = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_bramki_zdobyte")) - brGosp;
-							gospodarzStracone = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_bramki_stracone")) - brGosc;
-							
-							baza.updateDruzyna(idGospodarz,gospodarzMecze, gospodarzPunkty, gospodarzZwyciestwa, gospodarzRemisy, gospodarzPorazki,gospodarzZdobyte, gospodarzStracone);
-							
-						}
-						
-						if(cursorGosc!=null && cursorGosc.moveToFirst())
-						{
-							goscMecze = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_mecze")) - 1;
-							if(brGosc>brGosp)
-							{
-								goscZwyciestwa = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_zwyciestwa")) - 1;
-								goscRemisy = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_remisy"));
-								goscPorazki = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_porazki"));
-								goscPunkty = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_punkty")) - 3;
-							}
-							else if (brGosp==brGosc)
-							{
-								goscRemisy = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_remisy")) - 1;
-								goscZwyciestwa = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_zwyciestwa"));
-								goscPorazki = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_porazki"));
-								goscPunkty = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_punkty")) - 1;
-							}
-							else
-							{
-								goscPorazki = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_porazki")) - 1;
-								goscRemisy = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_remisy"));
-								goscZwyciestwa = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_zwyciestwa"));
-								goscPunkty = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_punkty"));
-							}
-							
-							goscZdobyte = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_bramki_zdobyte")) - brGosc;
-							goscStracone = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_bramki_stracone")) - brGosp;
-							
-							baza.updateDruzyna(idGosc, goscMecze, goscPunkty,goscZwyciestwa, goscRemisy, goscPorazki,goscZdobyte, goscStracone);
-							
-						}
+						mojaDruzynaID = cursorMojaDruzyna.getLong(cursorMojaDruzyna.getColumnIndex("dan_dru_id"));
 					}
+					
+					String data = cursorUsun.getString(cursorUsun.getColumnIndex("mecz_data"));
+					Cursor mojeMecze = baza.getMeczeZDruzynaPozniejsze(mojaDruzynaID,data,UsunID);
+					int count = 0;
+					
+					if(mojeMecze!=null && mojeMecze.moveToFirst())
+					{
+						count = mojeMecze.getCount();
+						if(count>0)
+							czyMoznaUsunac = false;
+						else
+							czyMoznaUsunac = true;
+							
+					}
+					else czyMoznaUsunac = true;
+					
+					if(czyMoznaUsunac)
+					{
+							String bramkiGosp = cursorUsun.getString(cursorUsun.getColumnIndex("mecz_bramkigosp"));
+							String bramkiGosc = cursorUsun.getString(cursorUsun.getColumnIndex("mecz_bramkigosc"));
+							
+							int idGospodarz, idGosc;
+							idGospodarz = cursorUsun.getInt(cursorUsun.getColumnIndex("mecz_dru_id_gospodarz"));
+							idGosc = cursorUsun.getInt(cursorUsun.getColumnIndex("mecz_dru_id_gosc"));
+							cursorGospodarz = baza.getNazwyDruzyn(idGospodarz);
+							cursorGosc = baza.getNazwyDruzyn(idGosc);
+							int gospodarzMecze, gospodarzPunkty, gospodarzZwyciestwa, gospodarzRemisy, gospodarzPorazki,gospodarzZdobyte, gospodarzStracone,
+								goscMecze, goscPunkty,goscZwyciestwa, goscRemisy, goscPorazki,goscZdobyte, goscStracone, brGosp,brGosc;
+							
+							
+							if(!bramkiGosp.equals("") && !bramkiGosc.equals(""))
+							{
+								brGosp = Integer.valueOf(bramkiGosp);
+								brGosc = Integer.valueOf(bramkiGosc);
+								if(cursorGospodarz!=null && cursorGospodarz.moveToFirst())
+								{
+									gospodarzMecze = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_mecze")) - 1;
+									if(brGosp>brGosc)
+									{
+										gospodarzZwyciestwa = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_zwyciestwa")) - 1;
+										gospodarzRemisy = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_remisy"));
+										gospodarzPorazki = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_porazki"));
+										gospodarzPunkty = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_punkty")) - 3;
+									}
+									else if (brGosp==brGosc)
+									{
+										gospodarzRemisy = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_remisy")) - 1;
+										gospodarzZwyciestwa = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_zwyciestwa"));
+										gospodarzPorazki = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_porazki"));
+										gospodarzPunkty = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_punkty")) - 1;
+									}
+									else
+									{
+										gospodarzPorazki = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_porazki")) - 1;
+										gospodarzRemisy = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_remisy"));
+										gospodarzZwyciestwa = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_zwyciestwa"));
+										gospodarzPunkty = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_punkty"));
+									}
+									
+									gospodarzZdobyte = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_bramki_zdobyte")) - brGosp;
+									gospodarzStracone = cursorGospodarz.getInt(cursorGospodarz.getColumnIndex("dru_bramki_stracone")) - brGosc;
+									
+									baza.updateDruzyna(idGospodarz,gospodarzMecze, gospodarzPunkty, gospodarzZwyciestwa, gospodarzRemisy, gospodarzPorazki,gospodarzZdobyte, gospodarzStracone);
+									
+								}
+								
+								if(cursorGosc!=null && cursorGosc.moveToFirst())
+								{
+									goscMecze = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_mecze")) - 1;
+									if(brGosc>brGosp)
+									{
+										goscZwyciestwa = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_zwyciestwa")) - 1;
+										goscRemisy = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_remisy"));
+										goscPorazki = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_porazki"));
+										goscPunkty = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_punkty")) - 3;
+									}
+									else if (brGosp==brGosc)
+									{
+										goscRemisy = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_remisy")) - 1;
+										goscZwyciestwa = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_zwyciestwa"));
+										goscPorazki = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_porazki"));
+										goscPunkty = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_punkty")) - 1;
+									}
+									else
+									{
+										goscPorazki = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_porazki")) - 1;
+										goscRemisy = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_remisy"));
+										goscZwyciestwa = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_zwyciestwa"));
+										goscPunkty = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_punkty"));
+									}
+									
+									goscZdobyte = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_bramki_zdobyte")) - brGosc;
+									goscStracone = cursorGosc.getInt(cursorGosc.getColumnIndex("dru_bramki_stracone")) - brGosp;
+									
+									baza.updateDruzyna(idGosc, goscMecze, goscPunkty,goscZwyciestwa, goscRemisy, goscPorazki,goscZdobyte, goscStracone);
+									
+								}
+							}
+					
 					
 					
 					
@@ -194,7 +230,7 @@ public class Terminarz extends Activity implements OnClickListener{
 				
 					
 					
-					long UsunID = cursorUsun.getLong(cursorUsun.getColumnIndex("_id"));
+					
 					
 					Cursor zawodnik;
 					cursorStatystyki = baza.getStatystykiMeczu(UsunID);
@@ -271,8 +307,16 @@ public class Terminarz extends Activity implements OnClickListener{
 					
 					baza.deleteStatystykaMecz(UsunID);
 					baza.deleteMecz(UsunID);
+					baza.deleteWykluczenie(UsunID);
+					}
+					
+					else
+						Toast.makeText(context, "Usuñ póŸniejsze mecze swojej druzyny", Toast.LENGTH_SHORT).show();
 				}
 			}
+			
+			
+			
 			
 			
 			
@@ -304,6 +348,7 @@ public class Terminarz extends Activity implements OnClickListener{
 		private class ViewHolder {
 	        public TextView tvKolejka, tvGospodarz, tvBramkiGosp, tvBramkiGosc, tvGosc, tvData, tvGodzina;
 	        public CheckBox chbox;
+	        public LinearLayout llWiersz;
 	     
 	    }
 		
@@ -326,12 +371,19 @@ public class Terminarz extends Activity implements OnClickListener{
 		        vHolder.tvData = (TextView)rowView.findViewById(R.id.tvTerminarzLayoutData);
 		        vHolder.tvGodzina = (TextView)rowView.findViewById(R.id.tvTerminarzLayoutGodzina);
 		        vHolder.chbox = (CheckBox) rowView.findViewById(R.id.chbTerminarz);
+		        vHolder.llWiersz = (LinearLayout)rowView.findViewById(R.id.llTerminarzWiersz);
 		        rowView.setTag(vHolder);
 	        } 
 			
 			else 
 	            vHolder = (ViewHolder) rowView.getTag();
 	        
+			if(position%2 == 0)
+				vHolder.llWiersz.setBackgroundColor(Color.parseColor("#3F3F3F"));
+			else
+				vHolder.llWiersz.setBackgroundColor(Color.parseColor("#232323"));
+			
+			
 	        cursor.moveToPosition(position);
 	        
 	        vHolder.tvKolejka.setText(cursor.getString(cursor.getColumnIndex("mecz_kolejka")));

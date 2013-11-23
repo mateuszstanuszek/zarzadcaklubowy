@@ -33,46 +33,46 @@
             android:layout_weight="1.25"
             android:gravity="center"
             android:text="Drużyna"
-            android:textSize="30sp" />
+            android:textSize="@dimen/text_size_small"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center"
-            android:text="M."
-            android:textSize="30sp" />
+            android:text="M"
+            android:textSize="@dimen/text_size_small"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center"
-            android:text="Pkt."
-            android:textSize="30sp" />
+            android:text="Pkt"
+            android:textSize="@dimen/text_size_small"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center"
-            android:text="Z."
-            android:textSize="30sp" />
+            android:text="Z"
+            android:textSize="@dimen/text_size_small"/>
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center"
-            android:text="R."
-            android:textSize="30sp" />
+            android:text="R"
+            android:textSize="@dimen/text_size_small"/>
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.25"
             android:gravity="center"
-            android:text="P."
-            android:textSize="30sp" />
+            android:text="P"
+            android:textSize="@dimen/text_size_small"/>
 
         <TextView
             android:layout_width="0dp"
@@ -80,14 +80,16 @@
             android:layout_weight="0.75"
             android:gravity="center"
             android:text="Bramki"
-            android:textSize="30sp" />
+            android:textSize="@dimen/text_size_small"/>
 
     </LinearLayout>
 
     <ListView
         android:id="@+id/lv_Tabela"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:divider="#0F0F0F"
+        android:dividerHeight="1dp">
     </ListView>
 
 </LinearLayout>

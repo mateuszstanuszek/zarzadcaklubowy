@@ -131,6 +131,44 @@ public class MeczStatystyki extends Activity implements OnClickListener{
 				if(pozycja!=null && pozycja.moveToPosition(pozycja.getPosition()))
 				{
 					UsunID = pozycja.getLong(pozycja.getColumnIndex("_id"));
+					String nazwa = pozycja.getString(pozycja.getColumnIndex("sta_nazwa"));
+					if(nazwa.equals("zolta"))
+					{
+						Cursor cZolte = baza.getStatystykiMeczNazwaZawodnik(meczID, "zolta", pozycja.getLong(pozycja.getColumnIndex("sta_zaw_id")));
+						Cursor cCzerwone = baza.getStatystykiMeczNazwaZawodnik(meczID, "czerwona", pozycja.getLong(pozycja.getColumnIndex("sta_zaw_id")));
+						int liczbaZoltych = 1;
+						if(cZolte!=null && cZolte.moveToFirst())
+						{
+							liczbaZoltych = cZolte.getCount();
+							if(liczbaZoltych>=2)
+							{
+								if(cCzerwone!=null && cCzerwone.moveToFirst())
+									baza.deleteStatystyka(cCzerwone.getLong(cCzerwone.getColumnIndex("_id")));
+								
+							}
+						}
+							
+					}
+					
+					else if(nazwa.equals("czerwona"))
+					{
+						Cursor cZolte = baza.getStatystykiMeczNazwaZawodnik(meczID, "zolta", pozycja.getLong(pozycja.getColumnIndex("sta_zaw_id")));
+						int liczbaZoltych = 1;
+						if(cZolte!=null && cZolte.moveToLast())
+						{
+							liczbaZoltych = cZolte.getCount();
+							if(liczbaZoltych>=2)
+							{
+							
+								baza.deleteStatystyka(cZolte.getLong(cZolte.getColumnIndex("_id")));
+								
+							}
+						}
+						
+					}
+					
+						
+					
 					baza.deleteStatystyka(UsunID);
 					
 					
@@ -202,7 +240,10 @@ class StatystykiCursorAdapter extends SimpleCursorAdapter
 		else 
             vHolder = (ViewHolder) rowView.getTag();
         
+		
+		
         cursor.moveToPosition(position);
+        vHolder.chbox.setEnabled(true);
         
         if(MeczStatystyki.czyKoniec>=1)
         {
@@ -243,6 +284,9 @@ class StatystykiCursorAdapter extends SimpleCursorAdapter
         {
         	tekst = nazwa;
         }
+        
+        
+        
         if(zawodnik!=null && zawodnik.moveToFirst())
         {
         	String imie = zawodnik.getString(zawodnik.getColumnIndex("zaw_imie"));
@@ -259,7 +303,18 @@ class StatystykiCursorAdapter extends SimpleCursorAdapter
 	        {
 	        	tekst = imie + " " + nazwisko + " zdobywa bramkê";
 	        }
-	        else
+	        
+	        else if(nazwa.equals("zmianazejscie"))
+	        {
+	        	tekst = imie + " " + nazwisko + " schodzi z boiska";
+	        	vHolder.chbox.setEnabled(false);
+	        }
+	        else if(nazwa.equals("zmianawejscie"))
+	        {
+	        	tekst = imie + " " + nazwisko + " pojawia siê na boisku";
+	        	vHolder.chbox.setEnabled(false);
+	        }
+	        else 
 	        {
 	        	tekst = nazwa;
 	        }

@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -166,10 +168,10 @@ public class Zawodnicy extends Activity implements OnClickListener{
 	{
 		tvZawodnikImie = (TextView)findViewById(R.id.tvZawodnicyImie);
 		tvZawodnikNazwisko = (TextView)findViewById(R.id.tvZawodnicyNazwisko);
-		tvZawodnikPesel = (TextView)findViewById(R.id.tvZawodnicyPesel);
+		tvZawodnikPesel = (TextView)findViewById(R.id.tvZawodnicyPesell);
 		tvZawodnikData = (TextView)findViewById(R.id.tvZawodnicyData);
-		tvZawodnikAdres = (TextView)findViewById(R.id.tvZawodnicyAdres);
-		tvZawodnikTelefon = (TextView)findViewById(R.id.tvZawodnicyTelefon);
+		tvZawodnikAdres = (TextView)findViewById(R.id.tvZawodnicyAdress);
+		tvZawodnikTelefon = (TextView)findViewById(R.id.tvZawodnicyTele);
 		tvZawodnikEmail = (TextView)findViewById(R.id.tvZawodnicyEmail);
 		tvZawodnikMecze = (TextView)findViewById(R.id.tvZawodnicyMecze);
 		tvZawodnikMinuty = (TextView)findViewById(R.id.tvZawodnicyMinuty);
@@ -344,9 +346,9 @@ public class Zawodnicy extends Activity implements OnClickListener{
 				LayoutInflater layoutInflater = context.getLayoutInflater();
 		        rowView =  layoutInflater.inflate(R.layout.spinner_zawodnicy_layout, null, true);
 		        vHolder = new ViewHolder();
-		        vHolder.tvGospodarz = (TextView)rowView.findViewById(R.id.tvSpinnerGospodarz);
-		        vHolder.tvGosc = (TextView)rowView.findViewById(R.id.tvSpinnerGosc);
-		        vHolder.tvKolejka = (TextView)rowView.findViewById(R.id.tvSpinnerKolejka);
+		        vHolder.tvGospodarz = (TextView)rowView.findViewById(R.id.tvSpinnerGospodarzz);
+		        vHolder.tvGosc = (TextView)rowView.findViewById(R.id.tvSpinnerGoscc);
+		        vHolder.tvKolejka = (TextView)rowView.findViewById(R.id.tvSpinnerKolejkaa);
 
 		        rowView.setTag(vHolder);
 			}
@@ -394,6 +396,7 @@ class ZawodnikStatystykiCursorAdapter extends SimpleCursorAdapter
 	
 	class ViewHolder {
         public TextView tvMinuta, tvStatystyka;
+        public LinearLayout llWiersz;
      
     }
 	
@@ -411,12 +414,20 @@ class ZawodnikStatystykiCursorAdapter extends SimpleCursorAdapter
 
 	        vHolder.tvMinuta = (TextView) rowView.findViewById(R.id.tvStatystykiZawodnikMinuta);
 	        vHolder.tvStatystyka = (TextView) rowView.findViewById(R.id.tvStatystykiZawodnik);
+	        vHolder.llWiersz = (LinearLayout) rowView.findViewById(R.id.llStatystykiZawodnikWiersz);
 	        rowView.setTag(vHolder);
         } 
+		
 		
 		else 
             vHolder = (ViewHolder) rowView.getTag();
         
+		
+		if(position%2 == 0)
+			vHolder.llWiersz.setBackgroundColor(Color.parseColor("#3F3F3F"));
+		else
+			vHolder.llWiersz.setBackgroundColor(Color.parseColor("#232323"));
+		
         cursor.moveToPosition(position);
         String nazwa = cursor.getString(cursor.getColumnIndex("sta_nazwa")), tekst = "";
         if(nazwa.equals("zolta"))
