@@ -14,14 +14,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/tvNazwaKlubuGlowna"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="30sp" />
 
         <Button
             android:id="@+id/btDaneKlubu"
@@ -46,6 +38,14 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/druzyny_icon"
             android:text="Drużyny" />
+        
+        <Button
+            android:id="@+id/btDzialacze"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/dzialacze128_icon"
+            android:text="Działacze" />
 
         <Button
             android:id="@+id/btUstawienia"
@@ -78,6 +78,16 @@
             android:layout_weight="1"
             android:drawableTop="@drawable/stadion128_icon"
             android:text="Mecz" />
+        
+        <Button
+            android:id="@+id/btWykluczenia"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/anuluj_icon"
+            android:text="Wykluczenia" />
+        
+        
 
     </LinearLayout>
 

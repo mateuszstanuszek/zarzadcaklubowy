@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -217,6 +218,7 @@ class StatystykiCursorAdapter extends SimpleCursorAdapter
 	class ViewHolder {
         public TextView tvMinuta, tvStatystyka;
         public CheckBox chbox;
+        public ImageView ivStatystyka;
      
     }
 	
@@ -234,6 +236,7 @@ class StatystykiCursorAdapter extends SimpleCursorAdapter
 	        vHolder.chbox = (CheckBox) rowView.findViewById(R.id.chbStatystyki);
 	        vHolder.tvStatystyka = (TextView) rowView.findViewById(R.id.tvStatystyki);  
 	        vHolder.tvMinuta = (TextView) rowView.findViewById(R.id.tvStatystykiMinuta);
+	        vHolder.ivStatystyka = (ImageView)rowView.findViewById(R.id.ivStatystyka);
 	        rowView.setTag(vHolder);
         } 
 		
@@ -274,11 +277,13 @@ class StatystykiCursorAdapter extends SimpleCursorAdapter
         if(nazwa.equals("bramkaprzeciwnik"))
         {
         	tekst = "Przeciwnicy zdobywaj¹ bramkê";
+        	vHolder.ivStatystyka.setImageResource(R.drawable.pilka48_icon);
         }
         
         else if(nazwa.equals("koniec"))
         {
         	tekst = "Koniec meczu";
+        	vHolder.ivStatystyka.setImageResource(R.drawable.czas48_icon);
         }
         else
         {
@@ -294,25 +299,30 @@ class StatystykiCursorAdapter extends SimpleCursorAdapter
 	        if(nazwa.equals("zolta"))
 	        {
 	        	tekst = imie + " " + nazwisko + " otrzymuje ¿ó³t¹ kartkê";
+	        	vHolder.ivStatystyka.setImageResource(R.drawable.zolta48_icon);
 	        }
 	        else if(nazwa.equals("czerwona"))
 	        {
 	        	tekst = imie + " " + nazwisko + " otrzymuje czerwon¹ kartkê";
+	        	vHolder.ivStatystyka.setImageResource(R.drawable.czerwona48_icon);
 	        }
 	        else if(nazwa.equals("bramka"))
 	        {
 	        	tekst = imie + " " + nazwisko + " zdobywa bramkê";
+	        	vHolder.ivStatystyka.setImageResource(R.drawable.pilka48_icon);
 	        }
 	        
 	        else if(nazwa.equals("zmianazejscie"))
 	        {
 	        	tekst = imie + " " + nazwisko + " schodzi z boiska";
 	        	vHolder.chbox.setEnabled(false);
+	        	vHolder.ivStatystyka.setImageResource(R.drawable.zmiana1_48);
 	        }
 	        else if(nazwa.equals("zmianawejscie"))
 	        {
 	        	tekst = imie + " " + nazwisko + " pojawia siê na boisku";
 	        	vHolder.chbox.setEnabled(false);
+	        	vHolder.ivStatystyka.setImageResource(R.drawable.zmiana2_48);
 	        }
 	        else 
 	        {

@@ -10,10 +10,12 @@
 
         
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/ivStatystyka"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_pilka" />
+            android:layout_gravity="center"
+            android:padding="5dp"
+            />
         <TextView
             android:id="@+id/tvStatystykiMinuta"
             android:layout_width="0dp"
@@ -21,7 +23,8 @@
             android:layout_weight="0.1"
             android:gravity="left"
             android:text="0"
-            android:textSize="18sp" />
+            android:textSize="18sp" 
+            android:padding="5dp"/>
 
         <TextView
             android:id="@+id/tvStatystyki"
@@ -30,7 +33,8 @@
             android:layout_weight="1"
             android:gravity="left"
             android:text="statystyka"
-            android:textSize="18sp" />
+            android:textSize="18sp" 
+            android:padding="5dp"/>
  		<CheckBox
            android:id="@+id/chbStatystyki"
            android:layout_width="80dp"

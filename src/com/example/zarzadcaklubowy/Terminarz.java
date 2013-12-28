@@ -113,32 +113,14 @@ public class Terminarz extends Activity implements OnClickListener{
 				Cursor cursorMojaDruzyna = baza.getDaneKlubu();
 				long mojaDruzynaID = -1;
 				
-				boolean czyMoznaUsunac = false;
+				boolean czyMoznaUsunac = true;
 				
 				
 				
 				
 				if(cursorUsun!=null)
 				{
-					if(cursorMojaDruzyna!=null && cursorMojaDruzyna.moveToFirst())
-					{
-						mojaDruzynaID = cursorMojaDruzyna.getLong(cursorMojaDruzyna.getColumnIndex("dan_dru_id"));
-					}
 					
-					String data = cursorUsun.getString(cursorUsun.getColumnIndex("mecz_data"));
-					Cursor mojeMecze = baza.getMeczeZDruzynaPozniejsze(mojaDruzynaID,data,UsunID);
-					int count = 0;
-					
-					if(mojeMecze!=null && mojeMecze.moveToFirst())
-					{
-						count = mojeMecze.getCount();
-						if(count>0)
-							czyMoznaUsunac = false;
-						else
-							czyMoznaUsunac = true;
-							
-					}
-					else czyMoznaUsunac = true;
 					
 					if(czyMoznaUsunac)
 					{
@@ -310,8 +292,7 @@ public class Terminarz extends Activity implements OnClickListener{
 					baza.deleteWykluczenie(UsunID);
 					}
 					
-					else
-						Toast.makeText(context, "Usuñ póŸniejsze mecze swojej druzyny", Toast.LENGTH_SHORT).show();
+
 				}
 			}
 			

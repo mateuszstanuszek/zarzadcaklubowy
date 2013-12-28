@@ -13,7 +13,7 @@ import android.util.Log;
 public class BazaDanych {
 	private static final String DEBUG_TAG = "Baza Danych";
 	 
-    private static final int DB_VERSION = 38;
+    private static final int DB_VERSION = 41;
     private static final String DB_NAME = "database.db";
     
     
@@ -26,6 +26,7 @@ public class BazaDanych {
     private static final String DB_STATYSTYKA_TABELA = "statystyka";
     private static final String DB_ZMIANA_TABELA = "zmiana";
     private static final String DB_WYKLUCZENIE_TABELA = "wykluczenie";
+    private static final String DB_DZIALACZE_TABELA = "dzialacze";
     
     
     public static final String PK_AUTO = "INTEGER PRIMARY KEY AUTOINCREMENT";
@@ -138,6 +139,22 @@ public class BazaDanych {
             ", wyk_po_ilu " + INT_NOT_NULL +
             ");";
     
+    
+    private static final String DB_CREATE_DZIALACZE_TABLE =
+            "CREATE TABLE " + DB_DZIALACZE_TABELA + "( " +
+            "_id" + " " + PK_AUTO  +
+            ", dzi_sez_id" + " " + INT_NOT_NULL +
+            ", dzi_dru_id" + " " + INT_NOT_NULL +
+            ", dzi_imie" + " " + TX_NOT_NULL + 
+            ", dzi_nazwisko" + " " + TX_NOT_NULL + 
+            ", dzi_PESEL " + TX_NOT_NULL +
+            ", dzi_adres " + TX_NOT_NULL +
+            ", dzi_data " + TX_NOT_NULL +
+            ", dzi_nrtel " + TX_NOT_NULL + " DEFAULT '---'" +
+            ", dzi_email " + TEXT + " DEFAULT '---'" +
+            ", dzi_stanowisko " + TEXT + " DEFAULT '---'" +
+            ");";
+    
     private static final String DROP_DANE_KLUBU =
             "DROP TABLE IF EXISTS " + DB_DANE_KLUBU_TABELA;
     private static final String DROP_SEZON =
@@ -156,6 +173,8 @@ public class BazaDanych {
             "DROP TABLE IF EXISTS " + DB_ZMIANA_TABELA;
     private static final String DROP_WYKLUCZENIE=
             "DROP TABLE IF EXISTS " + DB_WYKLUCZENIE_TABELA;
+    private static final String DROP_DZIALACZE=
+            "DROP TABLE IF EXISTS " + DB_DZIALACZE_TABELA;
     
     private SQLiteDatabase db;
     private Context context;
@@ -184,6 +203,7 @@ public class BazaDanych {
             db.execSQL(DB_CREATE_STATYSTYKA_TABLE);
             db.execSQL(DB_CREATE_ZMIANA_TABLE);
             db.execSQL(DB_CREATE_WYKLUCZENIE_TABLE);
+            db.execSQL(DB_CREATE_DZIALACZE_TABLE);
      
             Log.d(DEBUG_TAG, "Tworzenie bazy...");
             Log.d(DEBUG_TAG, "Tabela " + DB_DANE_KLUBU_TABELA + " ver." + DB_VERSION + " utworzona");
@@ -195,6 +215,7 @@ public class BazaDanych {
             Log.d(DEBUG_TAG, "Tabela " + DB_STATYSTYKA_TABELA + " ver." + DB_VERSION + " utworzona");
             Log.d(DEBUG_TAG, "Tabela " + DB_ZMIANA_TABELA + " ver." + DB_VERSION + " utworzona");
             Log.d(DEBUG_TAG, "Tabela " + DB_WYKLUCZENIE_TABELA + " ver." + DB_VERSION + " utworzona");
+            Log.d(DEBUG_TAG, "Tabela " + DB_DZIALACZE_TABELA + " ver." + DB_VERSION + " utworzona");
         }
      
         @Override
@@ -208,6 +229,7 @@ public class BazaDanych {
             db.execSQL(DROP_STATYSTYKA);
             db.execSQL(DROP_ZMIANA);
             db.execSQL(DROP_WYKLUCZENIE);
+            db.execSQL(DROP_DZIALACZE);
      
             Log.d(DEBUG_TAG, "Baza danych aktualizowana...");
             Log.d(DEBUG_TAG, "Tabela " + DB_DANE_KLUBU_TABELA + " zaktualizowana z ver." + oldVersion + " do ver." + newVersion);
@@ -452,17 +474,17 @@ public boolean updateNazwaDruzyny(long id, String nazwa) {
     public boolean updateZawodnik(long id,long druzyna_id, String imie, String nazwisko, String pesel, String adres, String data, String nrtel, String email, String pozycja) {
         
     	String where = "_id" + "=" + id;
-    	ContentValues newDruzyna = new ContentValues();
-        newDruzyna.put("zaw_dru_id", druzyna_id);
-        newDruzyna.put("zaw_imie", imie);
-        newDruzyna.put("zaw_nazwisko", nazwisko);
-        newDruzyna.put("zaw_PESEL", pesel);
-        newDruzyna.put("zaw_adres", adres);
-        newDruzyna.put("zaw_data", data);
-        newDruzyna.put("zaw_nrtel", nrtel);
-        newDruzyna.put("zaw_email", email);
-        newDruzyna.put("zaw_pozycja", pozycja); 
-        return db.update(DB_ZAWODNIK_TABELA, newDruzyna, where, null) > 0;
+    	ContentValues zawodnik = new ContentValues();
+    	zawodnik.put("zaw_dru_id", druzyna_id);
+    	zawodnik.put("zaw_imie", imie);
+    	zawodnik.put("zaw_nazwisko", nazwisko);
+    	zawodnik.put("zaw_PESEL", pesel);
+    	zawodnik.put("zaw_adres", adres);
+    	zawodnik.put("zaw_data", data);
+    	zawodnik.put("zaw_nrtel", nrtel);
+    	zawodnik.put("zaw_email", email);
+    	zawodnik.put("zaw_pozycja", pozycja); 
+        return db.update(DB_ZAWODNIK_TABELA, zawodnik, where, null) > 0;
     }
     
     
@@ -782,9 +804,84 @@ public boolean updateNazwaDruzyny(long id, String nazwa) {
 		 return db.delete(DB_WYKLUCZENIE_TABELA,where, null) > 0;
 	 }
      
+     public boolean deleteWykluczeniePoID(long ID)
+	 {
+    	 String where = "_id=" + ID;
+		 return db.delete(DB_WYKLUCZENIE_TABELA,where, null) > 0;
+	 }
+     
      
      
 	 
+     
+     /*------------------------------DZIALACZE-------------------------------------*/
+     
+     public long insertDzialacz(long sezon_id, long druzyna_id, String imie, String nazwisko, String pesel, String adres, String data, String nrtel, String email, String stanowisko) {
+         ContentValues newDzialacz = new ContentValues();
+         newDzialacz.put("dzi_sez_id", sezon_id);
+         newDzialacz.put("dzi_dru_id", druzyna_id);
+         newDzialacz.put("dzi_imie", imie);
+         newDzialacz.put("dzi_nazwisko", nazwisko);
+         newDzialacz.put("dzi_PESEL", pesel);
+         newDzialacz.put("dzi_adres", adres);
+         newDzialacz.put("dzi_data", data);
+         newDzialacz.put("dzi_nrtel", nrtel);
+         newDzialacz.put("dzi_email", email);
+         newDzialacz.put("dzi_stanowisko", stanowisko); 
+         return db.insert(DB_DZIALACZE_TABELA, null, newDzialacz);
+     }
+     
+     public Cursor getDzialacze() {
+         /*String[] columns = {"_id","zaw_dru_id","zaw_imie","zaw_nazwisko","zaw_PESEL","zaw_adres","zaw_data","zaw_nrtel",
+         		"zaw_email","zaw_pozycja","zaw_mecze","zaw_minuty","zaw_zolte_kartki","zaw_czerw_kartki","zaw_bramki "};
+         return db.query(DB_ZAWODNIK_TABELA, columns, null, null, null, null, null);*/
+     	return db.rawQuery("select dzialacze._id,dzi_sez_id,dzi_dru_id,dzi_imie,dzi_nazwisko,dzi_PESEL,dzi_adres,dzi_data,dzi_nrtel,dzi_email,dzi_stanowisko "+
+     			" from dzialacze,sezon where dzialacze.dzi_sez_id=sezon._id and sezon.sez_aktualny=1", null);
+
+     }
+     
+     public Cursor getDzialacze(long id) {
+     	String where = "_id" + "=" + id;
+         String[] columns = {"_id","dzi_dru_id","dzi_imie","dzi_nazwisko","dzi_PESEL","dzi_adres","dzi_data","dzi_nrtel",
+         		"dzi_email","dzi_stanowisko "};
+         return db.query(DB_DZIALACZE_TABELA, columns, where, null, null, null, null);
+        
+         
+     }
+     
+
+     
+     public boolean deleteDzialacz(long id){
+     	
+     	String where = "_id" + "=" + id;
+         return db.delete(DB_DZIALACZE_TABELA, where, null) > 0;
+         
+     }
+     
+     public boolean deleteDzialaczSezon(long id){
+     	
+     	String where = "zaw_sez_id" + "=" + id;
+         return db.delete(DB_DZIALACZE_TABELA, where, null) > 0;
+         
+     }
+
+     
+     public boolean updateDzialacz(long id,long druzyna_id, String imie, String nazwisko, String pesel, String adres, String data, String nrtel, String email, String stanowisko) {
+         
+     	String where = "_id" + "=" + id;
+     	ContentValues dzialacz = new ContentValues();
+     	dzialacz .put("dzi_dru_id", druzyna_id);
+     	dzialacz .put("dzi_imie", imie);
+     	dzialacz .put("dzi_nazwisko", nazwisko);
+     	dzialacz .put("dzi_PESEL", pesel);
+     	dzialacz .put("dzi_adres", adres);
+     	dzialacz .put("dzi_data", data);
+     	dzialacz .put("dzi_nrtel", nrtel);
+     	dzialacz .put("dzi_email", email);
+     	dzialacz .put("dzi_stanowisko", stanowisko); 
+        return db.update(DB_DZIALACZE_TABELA, dzialacz , where, null) > 0;
+     }
+     
 	 
 	 
 }

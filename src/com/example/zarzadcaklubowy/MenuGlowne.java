@@ -15,10 +15,9 @@ import android.widget.TextView;
 public class MenuGlowne extends Activity implements OnClickListener{
 	
 	private BazaDanych baza;
-	private Button btDaneKlubu,btDruzyny,btZawodnicy, btUstawienia, btTerminarz, btTabela, btMecz;
+	private Button btDaneKlubu,btDruzyny,btZawodnicy, btUstawienia, btTerminarz, btTabela, btMecz, btDzialacze, btWykluczenia;
 	private Context context;
-	private Cursor cursor,cursorDruzyna,cursorSezon;
-	private TextView tvNazwaKlubu;
+	private Cursor cursor,cursorSezon;
 	private Intent intent;
 
     @Override
@@ -28,11 +27,12 @@ public class MenuGlowne extends Activity implements OnClickListener{
         btDaneKlubu = (Button)findViewById(R.id.btDaneKlubu);
         btDruzyny = (Button)findViewById(R.id.btDruzyny);
         btZawodnicy = (Button)findViewById(R.id.btZawodnicy);
-        tvNazwaKlubu = (TextView)findViewById(R.id.tvNazwaKlubuGlowna);
         btUstawienia = (Button)findViewById(R.id.btUstawienia);
         btTerminarz = (Button)findViewById(R.id.btTerminarz);
         btTabela = (Button)findViewById(R.id.btTabela);
         btMecz = (Button)findViewById(R.id.btMecz);
+        btDzialacze = (Button)findViewById(R.id.btDzialacze);
+        btWykluczenia = (Button)findViewById(R.id.btWykluczenia);
         btDaneKlubu.setOnClickListener(this);
         btDruzyny.setOnClickListener(this);
         btZawodnicy.setOnClickListener(this);
@@ -40,6 +40,8 @@ public class MenuGlowne extends Activity implements OnClickListener{
         btTerminarz.setOnClickListener(this);
         btTabela.setOnClickListener(this);
         btMecz.setOnClickListener(this);
+        btDzialacze.setOnClickListener(this);
+        btWykluczenia.setOnClickListener(this);
         context = getApplicationContext();
         baza = new BazaDanych(context);
         baza.open();
@@ -86,6 +88,14 @@ public class MenuGlowne extends Activity implements OnClickListener{
 				startActivity(intent);
 			}
 			break;
+			
+		case R.id.btDzialacze:
+			if(Powiadomienie())
+			{
+				intent = new Intent(context,Dzialacze.class);
+				startActivity(intent);
+			}
+			break;
 		case R.id.btUstawienia:
 			intent = new Intent(context,Ustawienia.class);
 			startActivity(intent);
@@ -111,6 +121,15 @@ public class MenuGlowne extends Activity implements OnClickListener{
 				startActivity(intent);
 				
 			}
+			break;
+		case R.id.btWykluczenia:
+			if(Powiadomienie())
+			{
+				intent = new Intent(context,Wykluczenia.class);
+				startActivity(intent);
+				
+			}
+			break;
 			
 			
 		}
@@ -153,18 +172,7 @@ public class MenuGlowne extends Activity implements OnClickListener{
 	public void onResume()
 	    {  // After a pause OR at startup
 		    super.onResume();
-		    cursor = baza.getDaneKlubu();
-		    if(cursor!=null && cursor.moveToFirst())
-				{
-		    		long id = cursor.getLong(cursor.getColumnIndex("dan_dru_id"));
-		    		cursorDruzyna = baza.getNazwyDruzyn(id);
-		    		if(cursorDruzyna!=null && cursorDruzyna.moveToFirst())
-		    		tvNazwaKlubu.setText(cursorDruzyna.getString(cursorDruzyna.getColumnIndex("dru_nazwa")));
-				}
-		    else
-		    {
-		    	tvNazwaKlubu.setText("Brak klubu");
-		    }
+
 	    }
 
 

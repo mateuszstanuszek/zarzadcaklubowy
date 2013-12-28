@@ -23,6 +23,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +47,7 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 	private ArrayList<Integer> wykluczeniaPoIlu;
 	private Cursor cursorZmiany;
 	private int iloscZmian;
+	private int doliczoneMinuty;
 
 
 	@Override
@@ -58,10 +60,12 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 		baza.open();
 		
 		wykluczeniaPoIlu = new ArrayList<Integer>();
-		wykluczeniaPoIlu.add(2);
 		wykluczeniaPoIlu.add(4);
-		wykluczeniaPoIlu.add(7);
-		wykluczeniaPoIlu.add(9);
+		wykluczeniaPoIlu.add(8);
+		wykluczeniaPoIlu.add(11);
+		wykluczeniaPoIlu.add(13);
+		wykluczeniaPoIlu.add(15);
+		wykluczeniaPoIlu.add(17);
 		
 		
 		WczytajDane();
@@ -96,11 +100,20 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 		    {
 		    	tvMinuta.setText(String.valueOf(cursorMinuta.getInt(cursorMinuta.getColumnIndex("sta_minuta"))));
 		    }
+		   
 		    else
 		    	tvMinuta.setText("1");
 		    //baza.updateMecz(meczID, "0", "0");
 		    tvBrGospodarz.setText("0");
 	    	tvBrGosc.setText("0");
+	    	
+	    	Cursor cursorDoliczony = baza.getStatystykiMeczNazwa(meczID, "doliczonyCzas");
+	    	if(cursorDoliczony!=null && cursorDoliczony.moveToFirst())
+	    	{
+	    		doliczoneMinuty = cursorDoliczony.getInt(cursorDoliczony.getColumnIndex("sta_minuta"));
+	    	}
+	    	else
+	    		doliczoneMinuty = 0;
 	    	
 		    Cursor cPodstawowi = baza.getZawodnicyPodstawowi(meczID);
 		    Cursor cRezerwowi = baza.getZawodnicyMecz(meczID);
@@ -366,20 +379,54 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 			break;
 			
 		case R.id.btMeczRozegrajPrzod:
+
+				if(minuta<90)
+				{
+					minuta++;
+					tvMinuta.setText(String.valueOf(minuta));
+
+				}
+				else
+				{
+					if(doliczoneMinuty<=0)
+					{
+						WyswietlDialogDoliczone();
+					}
+					else
+					{
+						if(minuta<90+doliczoneMinuty)
+						{
+							minuta++;
+							tvMinuta.setText(String.valueOf(minuta));
+						}
+					}
+				}
+
 			
-			if(minuta<90)
-			{
-				minuta++;
-				tvMinuta.setText(String.valueOf(minuta));
-			}
 			break;
 			
 		case R.id.btMeczRozegrajPrzod5:
 			
 			if(minuta<=85)
 			{
-				minuta = minuta+5;
+				minuta += 5;
 				tvMinuta.setText(String.valueOf(minuta));
+			}
+			
+			else
+			{
+				if(doliczoneMinuty<=0)
+				{
+					WyswietlDialogDoliczone();
+				}
+				else
+				{
+					if(minuta<85+doliczoneMinuty)
+					{
+						minuta+=5;
+						tvMinuta.setText(String.valueOf(minuta));
+					}
+				}
 			}
 			break;
 			
@@ -485,6 +532,48 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 		
 			
 		
+	}
+	
+	
+	private void WyswietlDialogDoliczone()
+	{
+		LayoutInflater li = LayoutInflater.from(this);
+		View promptsView = li.inflate(R.layout.doliczone_dialog_layout, null);
+
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+				this);
+
+		// set prompts.xml to alertdialog builder
+		alertDialogBuilder.setView(promptsView);
+
+		final EditText userInput = (EditText) promptsView
+				.findViewById(R.id.etDoliczoneDialog);
+
+		// set dialog message
+		alertDialogBuilder
+			.setCancelable(false)
+			.setPositiveButton("Zapisz",
+			  new DialogInterface.OnClickListener() {
+			    public void onClick(DialogInterface dialog,int id) {
+			    	
+			    	doliczoneMinuty = Integer.valueOf(userInput.getText().toString());
+			    	baza.insertStatystyka(meczID, -1, "doliczonyCzas", doliczoneMinuty);
+			    	
+			    }
+			  })
+			.setNegativeButton("Anuluj",
+			  new DialogInterface.OnClickListener() {
+			    public void onClick(DialogInterface dialog,int id) {
+				dialog.cancel();
+			    }
+			  });
+
+		// create alert dialog
+		alertDialogBuilder.setTitle("Wpisz liczbê doliczonych minut");
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
 	}
 	
 	
@@ -671,7 +760,7 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 									bramki = zawodnik.getInt(zawodnik.getColumnIndex("zaw_bramki"));
 									if(cursorSezon!=null && cursorSezon.moveToFirst())
 									{	long sezId = cursorSezon.getLong(cursorSezon.getColumnIndex("_id"));
-										baza.insertWykluczenie(sezId, meczID, zawodnikID, 1, 3, -1);
+										baza.insertWykluczenie(sezId, meczID, zawodnikID, 1, 1, -1);
 									}
 								}
 								
@@ -850,8 +939,8 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 				
 				else
 				{
-					vHolder.tvImie.setTextColor(Color.BLACK);
-					vHolder.tvNazwisko.setTextColor(Color.BLACK);
+					vHolder.tvImie.setTextColor(Color.WHITE);
+					vHolder.tvNazwisko.setTextColor(Color.WHITE);
 				}
 			}
 			
@@ -891,7 +980,7 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 					
 					
 					
-					
+					notifyDataSetChanged();
 					
 					
 				}
@@ -922,7 +1011,7 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 						Toast.makeText(context, "Zawodnik " + zawodnik.getImie() + " " + zawodnik.getNazwisko() + 
 								" otrzyma³ czerwon¹ kartkê w " + tvMinuta.getText().toString() + " minucie", Toast.LENGTH_SHORT).show();
 						
-						
+						notifyDataSetChanged();
 					}
 			});
 
@@ -955,7 +1044,7 @@ public class MeczRozegraj extends Activity implements OnClickListener {
 					Toast.makeText(context, "Zawodnik " + zawodnik.getImie() + " " + zawodnik.getNazwisko() + 
 							" zdoby³ bramkê w " + tvMinuta.getText().toString() + " minucie", Toast.LENGTH_SHORT).show();
 					
-					
+					notifyDataSetChanged();
 				}
 			});
 	        

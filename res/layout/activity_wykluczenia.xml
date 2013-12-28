@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:layout_marginTop="10dip">
+
+  <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        
+         <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:gravity="center"
+                android:text="zawodnik"
+				android:layout_span="3"
+            	android:padding="5dip" 
+            	android:textSize="@dimen/text_size_high_medium" />
+         
+           <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.75"
+                android:gravity="center"
+                android:text="powód"
+				android:layout_span="3"
+            	android:padding="5dip" 
+            	android:textSize="@dimen/text_size_high_medium"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:text="akt."
+				android:layout_span="3"
+            	android:padding="5dip" 
+            	android:textSize="@dimen/text_size_high_medium"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.25"
+                android:gravity="center"
+                android:text="m."
+				android:layout_span="3"
+            	android:padding="5dip" 
+            	android:textSize="@dimen/text_size_high_medium"/>
+
+
+    
+
+            <TextView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    
+    <ListView
+        android:id="@+id/lvWykluczenia"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:focusable="true">
+    </ListView>
+
+    <LinearLayout
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:orientation="horizontal" >
+
+        <Button
+                android:id="@+id/btWykluczeniaDodaj"
+                android:layout_width="0dp"
+                	android:layout_height="wrap_content"
+                	android:layout_weight="1"
+                android:text="Dodaj"
+                android:drawableTop="@drawable/add128_icon" />
+
+            <Button
+                android:id="@+id/btWykluczeniaEdytuj"
+                android:layout_width="0dp"
+                	android:layout_height="wrap_content"
+                	android:layout_weight="1"
+                android:text="Edytuj" 
+                android:drawableTop="@drawable/edytuj_icon"/>
+             <Button
+                android:id="@+id/btWykluczeniaUsun"
+                android:layout_width="0dp"
+                	android:layout_height="wrap_content"
+                	android:layout_weight="1"
+                android:text="Usuń" 
+                android:drawableTop="@drawable/usun_icon"/>
+
+    </LinearLayout>
+
+</LinearLayout>

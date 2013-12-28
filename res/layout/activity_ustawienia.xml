@@ -24,20 +24,26 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Aktualny sezon:"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_high_medium"
+                android:layout_span="3"
+            	android:padding="18dip" 
+            	android:background="#232323" />
 
             <TextView
                 android:id="@+id/tvUstawieniaSezon"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="---"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_high_medium"
+                android:layout_span="3"
+            	android:padding="18dip" 
+            	android:background="#232323" />
         </LinearLayout>
         
         <LinearLayout
@@ -47,44 +53,52 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Liczba kolejek:"
-                android:textSize="18sp" />
+                android:padding="18dip" 
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium" />
 
             <TextView
                 android:id="@+id/tvUstawieniaLiczbaKolejek"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="---"
-                android:textSize="18sp" />
+           		 android:padding="18dip" 
+            	android:background="#3F3F3F"
+                android:textSize="@dimen/text_size_high_medium"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:background="#3F3F3F" >
         <Button
                 android:id="@+id/btUstawieniaDodaj"
                 android:layout_width="0dp"
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
-                android:text="Dodaj" />
+                android:text="Dodaj" 
+                android:drawableTop="@drawable/add128_icon"/>
 
             <Button
                 android:id="@+id/btUstawieniaEdytuj"
                 android:layout_width="0dp"
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
-                android:text="Edytuj" />
+                android:text="Edytuj" 
+                android:drawableTop="@drawable/edytuj_icon"/>
             <Button
                 android:id="@+id/btUstawieniaUsun"
                 android:layout_width="0dp"
                 	android:layout_height="wrap_content"
                 	android:layout_weight="1"
-                android:text="Usuń" />
+                android:text="Usuń" 
+                android:drawableTop="@drawable/usun_icon"/>
 		</LinearLayout>
 		
         
@@ -95,25 +109,41 @@
 
             <TextView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Wybierz aktualny:"
-                android:textSize="18sp" />
+                android:textSize="@dimen/text_size_high_medium"
+                android:layout_span="3"
+            	android:padding="18dip" 
+            	android:background="#232323"  />
 
             <Spinner
         		android:id="@+id/spinnerUstawieniaSezon"
         		android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:ems="10" />
+                android:ems="10" 
+                android:textSize="@dimen/text_size_high_medium"
+                android:layout_span="3"
+            	android:padding="18dip" 
+            	android:background="#232323" />
         </LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+            android:orientation="horizontal" >
 
         <Button
             android:id="@+id/btUstawieniaZapisz"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Zapisz" />
+            android:text="Zapisz" 
+            android:drawableTop="@drawable/save_icon"/>
+        </LinearLayout>
 
     </LinearLayout>
 

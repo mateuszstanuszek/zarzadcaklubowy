@@ -118,6 +118,28 @@ public class ZawodnicyDodaj extends Activity implements OnClickListener {
 						baza.insertZawodnik(idSezon,1, "Mateusz"+i, "Stanuszek"+i, "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
 
 					}*/
+					/*
+					baza.insertZawodnik(idSezon,1, "Mateusz", "Stanuszek", "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					baza.insertZawodnik(idSezon,1, "£ukasz", "Hajduga", "91081104136" ,"Porêba 112", "21.08.1981", "5566233221", "hajduga@vp.pl", "napastnik");
+					baza.insertZawodnik(idSezon,1, "Jaros³aw", "Ulas", "89112304564" ,"Jasieñ 211", "11.12.1986", "213344567", "ulas@vp.pl", "pomocnik");
+					baza.insertZawodnik(idSezon,1, "Krzysztof", "Migacz", "782323034" ,"Gnojnik 87", "15.04.1993", "888654321", "migacz@vp.pl", "pomocnik");
+					baza.insertZawodnik(idSezon,1, "£ukasz", "Robak", "51081104136" ,"Gnojnik 212", "14.01.1992", "663316858", "robak@vp.pl", "obroñca");
+					baza.insertZawodnik(idSezon,1, "Marian", "Wawryka", "87542304136" ,"Brzesko ul. Jagie³³y 12", "15.04.1988", "567234123", "wawryka@gmail.com", "obroñca");
+					baza.insertZawodnik(idSezon,1, "Wies³aw", "Górak", "921112054545" ,"Gnojnik 301", "11.08.1994", "987456321", "gorak0@vp.pl", "obroñca");
+					baza.insertZawodnik(idSezon,1, "Konrad", "Sacha", "81081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					baza.insertZawodnik(idSezon,1, "Tomasz", "Grzyb", "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					baza.insertZawodnik(idSezon,1, "Marcin", "Migacz", "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					baza.insertZawodnik(idSezon,1, "Rafa³", "Lis", "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					baza.insertZawodnik(idSezon,1, "£ukasz", "Przepiórka", "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					
+					baza.insertZawodnik(idSezon,1, "Tomasz", "Boczarski", "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					baza.insertZawodnik(idSezon,1, "Krystian", "Or³owski", "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					baza.insertZawodnik(idSezon,1, "Dominik", "Robak", "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					baza.insertZawodnik(idSezon,1, "Piotr", "Krzyszkowski", "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					
+					
+					baza.insertZawodnik(idSezon,1, "Marcin", "Misina", "91081104136" ,"Lewniowa 263", "11.08.1991", "663316858", "matus0@vp.pl", "obroñca");
+					*/
 					Intent intent = new Intent(context, Zawodnicy.class);
 					startActivity(intent);
 				}

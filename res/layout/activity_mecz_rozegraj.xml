@@ -65,10 +65,11 @@
    		 </LinearLayout>
 
         <Button
+            android:drawableRight="@drawable/pilka64_icon"
             android:id="@+id/btMeczRozegrajBrPrzeciwnik"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bramka przecinik" />
+            android:text="Bramka dla przeciwnika" />
    		 
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,27 +138,26 @@
 		        android:gravity="center"
 		        android:text=""
 		        android:textSize="18sp" />
-             <TextView
-		        android:layout_width="0dp"
+              <ImageView
+                android:src="@drawable/zolta48_icon"
+ 				android:layout_width="0dp"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
 		        android:gravity="center"
-		        android:text="Ż."
-		        android:textSize="18sp" />
-             <TextView
+
+		        />
+             <ImageView
+                android:src="@drawable/czerwona48_icon"
 		        android:layout_width="0dp"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="Cz."
-		        android:textSize="18sp" />
-             <TextView
-		        android:layout_width="0dp"
+		        android:gravity="center" />
+             <ImageView
+                android:layout_width="0dp"
+                android:src="@drawable/pilka48_icon"
 		        android:layout_height="wrap_content"
 		        android:layout_weight="1"
-		        android:gravity="center"
-		        android:text="Br."
-		        android:textSize="18sp" />
+		        android:gravity="center"/>
 		        
              </LinearLayout>
    		 
@@ -171,7 +171,9 @@
                  android:id="@+id/btMeczRozegrajZmiana"
 		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
-                 android:text="Zmiana" />
+                 android:text="Zmiana" 
+                 android:drawableLeft="@drawable/zmiana2_48"
+                 android:drawableRight="@drawable/zmiana1_48"/>
     	
         <TextView
 		        android:layout_width="match_parent"
@@ -194,13 +196,15 @@
 	                android:layout_width="0dp"
 		        	android:layout_height="wrap_content"
 		        	android:layout_weight="1"
-	                android:text="Zakończ" />
+	                android:text="Zakończ" 
+	                android:drawableTop="@drawable/czas64_icon"/>
 	    	<Button
 	                android:id="@+id/btMeczRozegrajStatystyki"
 	                android:layout_width="0dp"
 		        	android:layout_height="wrap_content"
 		        	android:layout_weight="1"
-	                android:text="Statystyki" />
+	                android:text="Statystyki" 
+	                android:drawableTop="@drawable/statystyki_icon64"/>
 	    	</LinearLayout>
     </LinearLayout>
 
