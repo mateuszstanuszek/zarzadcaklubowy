@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.zarzadcaklubowy"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:icon="@drawable/dzialacze_icon"
+        android:label="@string/app_name"
+        android:theme="@android:style/Theme.Holo.NoActionBar" >
+        <activity
+            android:name="com.example.zarzadcaklubowy.MenuGlowne"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.DaneKlubu"
+            android:label="@string/title_activity_dane_klubu"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.DaneKlubuWprowadz"
+            android:label="@string/title_activity_dane_klubu_wprowadz"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.DaneKlubuEdycja"
+            android:label="@string/title_activity_dane_klubu_edycja"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.Druzyny"
+            android:label="@string/title_activity_druzyny" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.Zawodnicy"
+            android:label="@string/title_activity_zawodnicy" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.ZawodnicyDodaj"
+            android:label="@string/title_activity_zawodnicy_dodaj"
+            android:launchMode="singleInstance"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.Ustawienia"
+            android:label="@string/title_activity_ustawienia"
+            android:launchMode="singleInstance" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.UstawieniaDodaj"
+            android:label="@string/title_activity_ustawienia_dodaj"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.Terminarz"
+            android:label="@string/title_activity_terminarz"
+            android:launchMode="singleInstance" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.TerminarzDodajMecz"
+            android:label="@string/title_activity_terminarz_dodaj_mecz"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.TerminarzWprowadzWyniki"
+            android:label="@string/title_activity_terminarz_wprowadz_wyniki"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.Tabela"
+            android:label="@string/title_activity_tabela" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.Mecz"
+            android:label="@string/title_activity_mecz"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.MeczRozegraj"
+            android:label="@string/title_activity_mecz_rozegraj"
+            android:launchMode="singleInstance"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.MeczStatystyki"
+            android:label="@string/title_activity_mecz_statystyki"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.Dzialacze"
+            android:label="@string/title_activity_dzialacze"
+            android:launchMode="singleInstance" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.DzialaczeDodaj"
+            android:label="@string/title_activity_dzialacze_dodaj"
+            android:launchMode="singleInstance"
+            android:noHistory="true" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.example.zarzadcaklubowy.Wykluczenia"
+            android:label="@string/title_activity_wykluczenia" android:screenOrientation="portrait">
+        </activity>
+    </application>
+
+</manifest>

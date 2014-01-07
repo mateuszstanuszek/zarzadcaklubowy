@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+           
+            android:id="@+id/tvTabelaMiejsce"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:text="1"
+            android:gravity="center"
+            style="@style/grey_less_itemTab_style"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+           
+            android:id="@+id/tvTabelaDruzyna"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25"
+            android:text="Drużyna"
+            style="@style/grey_more_itemTab_style"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:id="@+id/tvTabelaMecze"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="M."
+            style="@style/grey_less_itemTab_style"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:id="@+id/tvTabelaPunkty"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="Pkt."
+             style="@style/grey_more_itemTab_style"
+            android:textSize="@dimen/text_size_high_medium" 
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvTabelaZwyciestwa"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="Z."
+            style="@style/grey_less_itemTab_style"
+            android:textSize="@dimen/text_size_small" />
+
+        <TextView
+            android:id="@+id/tvTabelaRemisy"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="R."
+             style="@style/grey_more_itemTab_style"
+            android:textSize="@dimen/text_size_small"  />
+        <TextView
+            android:id="@+id/tvTabelaPorazki"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="P."
+            style="@style/grey_less_itemTab_style"
+            android:textSize="@dimen/text_size_small"/>
+
+        <TextView
+            android:id="@+id/tvTabelaBramkiZdobyte"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="Br."
+             style="@style/grey_more_itemTab_style"
+            android:textSize="@dimen/text_size_small"  />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text=":"
+             style="@style/grey_more_itemTab_style"
+            android:textSize="@dimen/text_size_small"  />
+        <TextView
+            android:id="@+id/tvTabelaBramkiStracone"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text="Br."
+             style="@style/grey_more_itemTab_style"
+            android:textSize="@dimen/text_size_small" />
+
+    </LinearLayout>
+
+</LinearLayout>

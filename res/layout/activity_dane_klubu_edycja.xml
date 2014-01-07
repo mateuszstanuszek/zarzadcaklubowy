@@ -1,0 +1,88 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".DaneKlubuEdycja" >
+
+       
+    
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nazwa:"
+            android:textSize="@dimen/text_size_high"/>
+
+        <EditText
+            android:id="@+id/etNazwaKlEd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/text_size_high"
+            android:inputType="textPersonName"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rok założenia"
+           android:textSize="@dimen/text_size_high"/>
+
+        <EditText
+            android:id="@+id/etRokEd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" 
+            android:inputType="number"
+            android:textSize="@dimen/text_size_high"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Telefon"
+            android:textSize="@dimen/text_size_high" />
+
+        <EditText
+            android:id="@+id/etTelefonEd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textSize="@dimen/text_size_high"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Adres"
+            android:textSize="@dimen/text_size_high" />
+
+            <EditText
+                android:id="@+id/etAdresEd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="@dimen/text_size_high" />
+
+   <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
+            <Button
+                android:id="@+id/btZatwierdzEd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/save_icon"
+                android:text="Zapisz" />
+            </LinearLayout>
+</LinearLayout>
+    
+
+</RelativeLayout>

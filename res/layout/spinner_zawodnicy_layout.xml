@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tvSpinnerKolejkaa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="1"
+            android:layout_span="3"
+            android:padding="5dip" 
+            android:textSize="@dimen/text_size_high_medium" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="kolejka "
+            android:layout_span="3"
+            android:padding="5dip" 
+            android:textSize="@dimen/text_size_high_medium" />
+        
+		 <TextView
+            android:id="@+id/tvSpinnerGospodarzz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Gospodarz"
+            android:layout_span="3"
+            android:padding="5dip" 
+            android:textSize="@dimen/text_size_high_medium"/>
+		 
+		 <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="-"
+            android:layout_span="3"
+            android:padding="5dip" 
+            android:textSize="@dimen/text_size_high_medium"/>
+
+        <TextView
+            android:id="@+id/tvSpinnerGoscc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Gosc"
+            android:layout_span="3"
+            android:padding="5dip" 
+            android:textSize="@dimen/text_size_high_medium" />
+ 
+
+    </LinearLayout>
+
+</LinearLayout>

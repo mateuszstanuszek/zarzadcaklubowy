@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Zawodnik:"
+            	android:padding="18dip" 
+            	android:textSize="@dimen/text_size_high_medium"
+            	android:background="#3F3F3F"
+            	android:textColor="@color/black"
+/>
+
+    
+               <Spinner
+        		android:id="@+id/spinnerWykluczeniaNoweZawodnicy"
+        		android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+            	android:padding="18dip"
+            	 android:background="#232323"
+
+                 />
+               
+               <TextView
+                android:background="#3F3F3F"              
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ilość meczów:"
+            	android:padding="18dip" 
+            	android:textSize="@dimen/text_size_high_medium"
+            	android:textColor="@color/black"
+				/>
+                        
+        <EditText
+		        android:background="#232323"
+		        android:id="@+id/etWykluczeniaNoweIleMeczow"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" 
+		        android:singleLine="true"
+		        android:inputType="number"
+		        android:padding="18dip"
+		        android:textSize="@dimen/text_size_high">
+		          </EditText>
+		        
+
+ 
+  
+    
+        
+    
+
+</LinearLayout>

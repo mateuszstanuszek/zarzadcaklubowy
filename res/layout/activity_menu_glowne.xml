@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MenuGlowne" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+
+        <Button
+            android:id="@+id/btDaneKlubu"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/dane_klubu_icon"
+            android:text="Dane klubu" />
+
+        <Button
+            android:id="@+id/btZawodnicy"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/zawodnicy_icon"
+            android:text="Zawodnicy" />
+
+        <Button
+            android:id="@+id/btDruzyny"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/druzyny_icon"
+            android:text="Drużyny" />
+        
+        <Button
+            android:id="@+id/btDzialacze"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/dzialacze128_icon"
+            android:text="Działacze" />
+
+        <Button
+            android:id="@+id/btUstawienia"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/search_icon"
+            android:text="Ustawienia" />
+
+        <Button
+            android:id="@+id/btTerminarz"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/terminarz_icon"
+            android:text="Terminarz" />
+
+        <Button
+            android:id="@+id/btTabela"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/tabela_icon"
+            android:text="Tabela" />
+
+        <Button
+            android:id="@+id/btMecz"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/stadion128_icon"
+            android:text="Mecz" />
+        
+        <Button
+            android:id="@+id/btWykluczenia"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/anuluj_icon"
+            android:text="Wykluczenia" />
+        
+        
+
+    </LinearLayout>
+
+</RelativeLayout>
